@@ -1,0 +1,7 @@
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\obj\Debug\Persistencia.csproj.AssemblyReference.cache
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\obj\Debug\Persistencia.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\bin\Debug\Persistencia.dll.config
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Persistencia\obj\Debug\Persistencia.pdb

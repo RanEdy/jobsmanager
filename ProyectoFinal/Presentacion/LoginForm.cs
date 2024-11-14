@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Persistencia;
 
 namespace Presentacion
 {
@@ -20,6 +21,9 @@ namespace Presentacion
         private void button_login_Click(object sender, EventArgs e)
         {
             //Aqui utiliza el LoginController para verificar la existencia del usuario
+            MainForm mainForm = new MainForm(UserType.WORKER);
+            mainForm.Show();
+            this.Hide();
         }
     }
 }

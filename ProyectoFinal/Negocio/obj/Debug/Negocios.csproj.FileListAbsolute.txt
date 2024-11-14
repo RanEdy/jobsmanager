@@ -1,0 +1,11 @@
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\obj\Debug\Negocios.csproj.AssemblyReference.cache
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\bin\Debug\Negocio.dll.config
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\bin\Debug\Negocio.dll
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\bin\Debug\Persistencia.dll
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\bin\Debug\Persistencia.pdb
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\bin\Debug\Persistencia.dll.config
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\obj\Debug\Negocios.csproj.Up2Date
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\obj\Debug\Negocio.dll
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Negocio\obj\Debug\Negocio.pdb
