@@ -1,4 +1,5 @@
-﻿using Persistencia;
+﻿using Negocios;
+using Persistencia;
 
 using System;
 using System.Collections.Generic;
@@ -32,24 +33,14 @@ namespace Presentacion
         private Dictionary<string, Image> optionsImagesDictionary;
 
 
-        public MainForm(UserType userType)
+        public MainForm()
         {
             InitializeComponent();
-            // Calcular la resolucion de la ventana basado en los porcentajes y el tamanio del monitor
-            this.MaximumSize = maxSize;
-            this.StartPosition = FormStartPosition.Manual;
-            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
-            if (screenSize.Width > maxSize.Width) { this.Width = maxSize.Width; }
-            if (screenSize.Height > maxSize.Height) { this.Height = maxSize.Height; }
-            else { this.Size = screenSize; }
-            this.Width = (this.Width * widthPercentage) / 100;
-            this.Height = (this.Height * heightPercentage) / 100;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-
+            InitFormSize();
             InitGeneralPanels();
 
             //Iniciar la interfaz dependiendo de si es Administrador o Empleado
-            switch (userType)
+            switch (UserController.GetLoggedUser().UserType)
             {
                 case UserType.ADMIN:
                     InitForAdmin();
@@ -79,6 +70,18 @@ namespace Presentacion
                               FUNCIONES DE INICIALIZACION DE COMPONENTES
         ===========================================================================================================
         */
+        private void InitFormSize()
+        {
+            this.MaximumSize = maxSize;
+            this.StartPosition = FormStartPosition.Manual;
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            if (screenSize.Width > maxSize.Width) { this.Width = maxSize.Width; }
+            if (screenSize.Height > maxSize.Height) { this.Height = maxSize.Height; }
+            else { this.Size = screenSize; }
+            this.Width = (this.Width * widthPercentage) / 100;
+            this.Height = (this.Height * heightPercentage) / 100;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+        }
         private void InitGeneralPanels()
         {
             optionsTopPanel = new FlowLayoutPanel()
@@ -141,6 +144,26 @@ namespace Presentacion
 
         private void InitForAdmin()
         {
+            //Mapear los nombres de cada opcion con su respectivo panel
+            optionsDictionary = new Dictionary<string, Panel>()
+            {
+                {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser())},
+                {"Users", new UIAdminUsersPage(contentDisplayPanel.Size)},
+                {"Jobs", new UIAdminJobsPage(contentDisplayPanel.Size)},
+                {"Reports", new UIAdminReportsPage(contentDisplayPanel.Size)}
+            };
+
+            //Mapear los nombres de cada opcion con su respectiva imagen
+            optionsImagesDictionary = new Dictionary<string, Image>()
+            {
+                {optionsDictionary.Keys.ElementAt(0),  Properties.Resources.UserIcon},
+                {optionsDictionary.Keys.ElementAt(1),  Properties.Resources.GroupUserIcon},
+                {optionsDictionary.Keys.ElementAt(2),  Properties.Resources.JobListIcon},
+                {optionsDictionary.Keys.ElementAt(3),  Properties.Resources.RequestIcon}
+            };
+            //Inicializar propiedades en comun que tendran todos los botones de las opciones
+            InitGeneralOptionsButton(optionsDictionary.Keys.ToArray());
+            InitOptionsImages(optionsImagesDictionary);
 
         }
 
@@ -149,7 +172,7 @@ namespace Presentacion
             //Mapear los nombres de cada opcion con su respectivo panel
             optionsDictionary = new Dictionary<string, Panel>()
             {
-                {"Profile", new UIProfilePage(contentDisplayPanel.Size, null)},
+                {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser())},
                 {"Request", new UIRequestPage(contentDisplayPanel.Size)},
                 {"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
                 {"Job List", new UIJobListPage(contentDisplayPanel.Size)}
