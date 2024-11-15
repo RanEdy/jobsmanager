@@ -63,6 +63,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Style.cs" />
+    <Compile Include="UIJobListPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIProfilePage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIRequestPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UISchedulePage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,14 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,18 +106,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keyIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loginIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\userIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\showPasswordIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Negocio\Negocios.csproj">
       <Project>{53be330b-88fb-4bd4-a6a1-b3f487528f12}</Project>
       <Name>Negocios</Name>
@@ -113,6 +114,54 @@
       <Project>{c5f49680-66c4-4c68-ae3a-f1e3a87e390c}</Project>
       <Name>Persistencia</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddImageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlockIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckRequestIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConfigIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DateEventIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DateIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GroupUserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JobListIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RemoveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RequestIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReturnIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScheduleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

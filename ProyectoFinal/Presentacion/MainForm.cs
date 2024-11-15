@@ -12,19 +12,40 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-
-    //Este Form es en el que estara cada apartado de la interfaz
-    //Esta construido similar a un Singleton
     public partial class MainForm : Form
     {
-        private Panel contentBottomPanel;
+        private Size maxSize = new Size(1920, 1080);
+        private int widthPercentage = 70;
+        private int heightPercentage = 90;
+        private float minFontSize = 10;
+        private float fontPercentage = 0.15f;
+
+        private Panel contentPanel;
+        private Panel contentDisplayPanel;
         private FlowLayoutPanel optionsTopPanel;
+
         private Form loginForm;
+
+        private List<Button> optionsButtonList = new List<Button>();
+
+        private Dictionary<string, Panel> optionsDictionary;
+        private Dictionary<string, Image> optionsImagesDictionary;
+
 
         public MainForm(UserType userType)
         {
-            //Inicializacion de todos los componentes y controles en comun
             InitializeComponent();
+            // Calcular la resolucion de la ventana basado en los porcentajes y el tamanio del monitor
+            this.MaximumSize = maxSize;
+            this.StartPosition = FormStartPosition.Manual;
+            Size screenSize = Screen.PrimaryScreen.WorkingArea.Size;
+            if (screenSize.Width > maxSize.Width) { this.Width = maxSize.Width; }
+            if (screenSize.Height > maxSize.Height) { this.Height = maxSize.Height; }
+            else { this.Size = screenSize; }
+            this.Width = (this.Width * widthPercentage) / 100;
+            this.Height = (this.Height * heightPercentage) / 100;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+
             InitGeneralPanels();
 
             //Iniciar la interfaz dependiendo de si es Administrador o Empleado
@@ -42,32 +63,81 @@ namespace Presentacion
             }
         }
 
-        // Se necesita esta funcion para cerrar la ventana del Login cuando se cierre la principal
+        /*
+        ===========================================================================================================
+                              GETTERS y SETTERS
+        ===========================================================================================================
+        */
+
         public void SetLoginForm(Form loginForm)
         {
             this.loginForm = loginForm;
         }
 
+        /*
+        ===========================================================================================================
+                              FUNCIONES DE INICIALIZACION DE COMPONENTES
+        ===========================================================================================================
+        */
         private void InitGeneralPanels()
         {
             optionsTopPanel = new FlowLayoutPanel()
             {
                 Dock = DockStyle.Top,
                 BackColor = Color.Red,
-                Size = new Size(this.Width, this.Height * 20 / 100)
+                Size = new Size(this.Width, this.Height * 12 / 100),
+                Padding = new Padding(0),
             };
 
-            contentBottomPanel = new Panel()
+            contentPanel = new Panel()
             {
                 Dock = DockStyle.Bottom,
-                BackColor = Color.Blue,
-                Size = new Size(this.Width, this.Height * 80 / 100)
+                BackColor = Style.WHITE,
+                Size = new Size(this.Width, this.Height * 88 / 100)
 
             };
 
+            contentDisplayPanel = new Panel()
+            {
+                Dock = DockStyle.Fill,
+                BackColor = Style.GRAY,
+                Size = contentPanel.Size
+            };
+
+            contentPanel.Controls.Add(contentDisplayPanel);
             this.Controls.Add(optionsTopPanel);
-            this.Controls.Add(contentBottomPanel);
+            this.Controls.Add(contentPanel);
         }
+        private void InitGeneralOptionsButton(string[] options)
+        {
+            foreach (string optionName in options)
+            {
+                Button b = new Button()
+                {
+                    Size = new Size(optionsTopPanel.Width / options.Length, optionsTopPanel.Height),
+                    Text = optionName,
+                    BackColor = Style.LIGHT_GRAY,
+                    ForeColor = Style.GRAY,
+                    Margin = new Padding(0),
+                    FlatStyle = FlatStyle.Popup,
+                    TextImageRelation = TextImageRelation.ImageBeforeText
+                };
+                b.Font = new Font(Style.FONT_BAHNSCHRTFT, minFontSize + b.Size.Height * fontPercentage, FontStyle.Bold);
+                b.Enter += new EventHandler(this.Button_selected);
+                b.Leave += new EventHandler(this.Button_deselected);
+                b.Click += new EventHandler(this.Button_click);
+                optionsTopPanel.Controls.Add(b);
+                optionsButtonList.Add(b);
+            }
+        }
+        private void InitOptionsImages(Dictionary<string, Image> images)
+        {
+            foreach (Button b in optionsButtonList)
+            {
+                b.Image = new Bitmap(images[b.Text], new Size(b.Height * 70 / 100, b.Height * 70 / 100));
+            }
+        }
+
         private void InitForAdmin()
         {
 
@@ -75,18 +145,63 @@ namespace Presentacion
 
         private void InitForWorker()
         {
+            //Mapear los nombres de cada opcion con su respectivo panel
+            optionsDictionary = new Dictionary<string, Panel>()
+            {
+                {"Profile", new UIProfilePage(contentDisplayPanel.Size)},
+                {"Request", new UIRequestPage(contentDisplayPanel.Size)},
+                {"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
+                {"Job List", new UIJobListPage(contentDisplayPanel.Size)}
+            };
+
+            //Mapear los nombres de cada opcion con su respectiva imagen
+            optionsImagesDictionary = new Dictionary<string, Image>()
+            {
+                {optionsDictionary.Keys.ElementAt(0),  Properties.Resources.UserIcon},
+                {optionsDictionary.Keys.ElementAt(1),  Properties.Resources.RequestIcon},
+                {optionsDictionary.Keys.ElementAt(2),  Properties.Resources.ScheduleIcon},
+                {optionsDictionary.Keys.ElementAt(3),  Properties.Resources.JobListIcon}
+            };
+
+            //Inicializar propiedades en comun que tendran todos los botones de las opciones
+            InitGeneralOptionsButton(optionsDictionary.Keys.ToArray());
+            InitOptionsImages(optionsImagesDictionary);
 
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        /*
+        ===========================================================================================================
+                              EVENTOS DE CONTROLES Y DE LA VENTANA
+        ===========================================================================================================
+        */
+
+        // Se necesita esta funcion para cerrar la ventana del Login cuando se cierre la principal
+        private void MainForm_FormClosing(object sender, FormClosedEventArgs e)
         {
-            loginForm.Close();
+            loginForm.Dispose();
         }
 
-        private void MainForm_Resize(object sender, EventArgs e)
+        private void Button_selected(object sender, EventArgs e)
         {
-            optionsTopPanel.Height = this.Height * 20/100;
-            contentBottomPanel.Height = this.Height * 80/100;
+            Button button = sender as Button;
+            button.BackColor = Style.DARK_CYAN;
+            button.ForeColor = Style.LIGHT_GRAY;
         }
+
+        private void Button_deselected(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.BackColor = Style.LIGHT_GRAY;
+            button.ForeColor = Style.GRAY;
+        }
+
+        private void Button_click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            contentPanel.Controls.Remove(contentDisplayPanel);
+            contentDisplayPanel = optionsDictionary[button.Text];
+            contentPanel.Controls.Add(contentDisplayPanel);
+        }
+
     }
 }

@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\negocio\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|solutionrelative:negocio\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,57 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\LoginController.cs",
-              "RelativeDocumentMoniker": "Negocio\\LoginController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\LoginController.cs",
-              "RelativeToolTip": "Negocio\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "LoginForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.Designer.cs",
+              "RelativeDocumentMoniker": "Presentacion\\LoginForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.Designer.cs",
+              "RelativeToolTip": "Presentacion\\LoginForm.Designer.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAArwBwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T18:22:33.344Z",
+              "WhenOpened": "2024-11-15T02:04:28.758Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\MainForm.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "Presentacion\\MainForm.cs [Dise\u00F1o]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T18:15:32.349Z",
-              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\MainForm.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs*",
-              "RelativeToolTip": "Presentacion\\MainForm.cs*",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T18:18:53.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs",
               "RelativeDocumentMoniker": "Presentacion\\LoginForm.cs",
               "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs",
               "RelativeToolTip": "Presentacion\\LoginForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAswBMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T18:11:05.29Z",
+              "WhenOpened": "2024-11-15T01:50:06.887Z",
               "EditorCaption": ""
             },
             {
@@ -92,8 +63,21 @@
               "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "Presentacion\\LoginForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T18:44:33.008Z",
+              "WhenOpened": "2024-11-15T01:56:56.159Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
+              "RelativeDocumentMoniker": "Presentacion\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
+              "RelativeToolTip": "Presentacion\\MainForm.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAiwIgAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T18:18:53.915Z",
+              "EditorCaption": ""
             }
           ]
         }

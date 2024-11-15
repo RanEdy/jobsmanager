@@ -8,5 +8,10 @@ namespace Negocios
 {
     public class LoginController
     {
+        public bool CheckUser(string email, string password)
+        {
+            //Ir a la capa de Persistencia a obtener la DataTable de la consulta en la tabla Usuario
+            return true;
+        }
     }
 }

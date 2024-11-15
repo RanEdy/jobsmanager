@@ -10,11 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{55772497-F591-4E50-AA4E-06B50C5DBFB8}"
-	ProjectSection(SolutionItems) = preProject
-		resources\keyIcon.png = resources\keyIcon.png
-		resources\loginIcon.png = resources\loginIcon.png
-		resources\userIcon.png = resources\userIcon.png
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
