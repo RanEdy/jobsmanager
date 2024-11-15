@@ -69,6 +69,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Style.cs" />
+    <Compile Include="UIAdminJobsPage.cs" />
+    <Compile Include="UIAdminReportsPage.cs" />
+    <Compile Include="UIAdminUsersPage.cs" />
     <Compile Include="UIJobListPage.cs">
       <SubType>Component</SubType>
     </Compile>

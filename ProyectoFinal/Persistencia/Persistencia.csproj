@@ -39,7 +39,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="EmergencyContact.cs" />
+    <Compile Include="Job.cs" />
+    <Compile Include="Relation.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="UserType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,7 +14,7 @@ namespace Presentacion
 {
     public partial class LoginForm : Form
     {
-        LoginController controller = new LoginController();
+        private LoginController controller = new LoginController();
         public LoginForm()
         {
             InitializeComponent();

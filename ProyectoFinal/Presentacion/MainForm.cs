@@ -108,6 +108,7 @@ namespace Presentacion
             this.Controls.Add(optionsTopPanel);
             this.Controls.Add(contentPanel);
         }
+
         private void InitGeneralOptionsButton(string[] options)
         {
             foreach (string optionName in options)
@@ -148,7 +149,7 @@ namespace Presentacion
             //Mapear los nombres de cada opcion con su respectivo panel
             optionsDictionary = new Dictionary<string, Panel>()
             {
-                {"Profile", new UIProfilePage(contentDisplayPanel.Size)},
+                {"Profile", new UIProfilePage(contentDisplayPanel.Size, null)},
                 {"Request", new UIRequestPage(contentDisplayPanel.Size)},
                 {"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
                 {"Job List", new UIJobListPage(contentDisplayPanel.Size)}
