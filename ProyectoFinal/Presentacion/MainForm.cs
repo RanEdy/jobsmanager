@@ -25,7 +25,7 @@ namespace Presentacion
         private Panel contentDisplayPanel;
         private FlowLayoutPanel optionsTopPanel;
 
-        private Form loginForm;
+        public Form loginForm { get; set; }
 
         private List<Button> optionsButtonList = new List<Button>();
 
@@ -52,17 +52,6 @@ namespace Presentacion
                     InitForWorker();
                     break;
             }
-        }
-
-        /*
-        ===========================================================================================================
-                              GETTERS y SETTERS
-        ===========================================================================================================
-        */
-
-        public void SetLoginForm(Form loginForm)
-        {
-            this.loginForm = loginForm;
         }
 
         /*

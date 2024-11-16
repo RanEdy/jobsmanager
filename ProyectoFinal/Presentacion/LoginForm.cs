@@ -53,7 +53,7 @@ namespace Presentacion
             if (controller.VerifyAndLogUser(textBox_user.Text, textBox_password.Text))
             {
                 MainForm mainForm = new MainForm();
-                mainForm.SetLoginForm(this);
+                mainForm.loginForm = this;
                 mainForm.Show();
                 this.Hide();
             }
