@@ -17,7 +17,7 @@ namespace Presentacion
     {
         private Size maxSize = new Size(1920, 1080);
         private int widthPercentage = 70;
-        private int heightPercentage = 90;
+        private int heightPercentage = 92;
         private float minFontSize = 10;
         private float fontPercentage = 0.15f;
 
@@ -76,8 +76,8 @@ namespace Presentacion
             optionsTopPanel = new FlowLayoutPanel()
             {
                 Dock = DockStyle.Top,
-                BackColor = Color.Red,
-                Size = new Size(this.Width, this.Height * 12 / 100),
+                BackColor = Style.WHITE,
+                Size = new Size(this.Width, this.Height * 10 / 100),
                 Padding = new Padding(0),
             };
 
@@ -85,14 +85,14 @@ namespace Presentacion
             {
                 Dock = DockStyle.Bottom,
                 BackColor = Style.WHITE,
-                Size = new Size(this.Width, this.Height * 88 / 100)
-
+                Size = new Size(this.Width, this.Height * 88 / 100),
+                Padding = new Padding(10, 50, 10 ,10)
             };
 
             contentDisplayPanel = new Panel()
             {
                 Dock = DockStyle.Fill,
-                BackColor = Style.GRAY,
+                BackColor = Style.WHITE,
                 Size = contentPanel.Size
             };
 

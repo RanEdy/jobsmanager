@@ -46,6 +46,7 @@
     <Compile Include="Relation.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserFieldEditable.cs" />
     <Compile Include="UserSql.cs" />
     <Compile Include="UserType.cs" />
   </ItemGroup>

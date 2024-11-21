@@ -24,6 +24,11 @@ namespace Negocios
             return LoggedUser;
         }
 
+        public static bool IsLoggedUserAdmin()
+        {
+            return LoggedUser.UserType == UserType.ADMIN;
+        }
+
         public User QueryUser(string email, string password)
         {
             return ConstructFromDataTable(userSql.QueryUser(email, password));
