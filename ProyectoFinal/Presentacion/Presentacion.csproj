@@ -96,6 +96,9 @@
     <Compile Include="UISchedulePage.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AddresEditForm.resx">
+      <DependentUpon>AddresEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

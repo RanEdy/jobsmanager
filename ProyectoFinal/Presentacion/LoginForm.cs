@@ -37,7 +37,17 @@ namespace Presentacion
             UserType = UserType.ADMIN,
             IsActivated = true,
             HasGuardCard = true,
-            ProfileImage = new Bitmap(Properties.Resources.UserIcon, new Size(80, 80))
+            ProfileImage = new Bitmap(Properties.Resources.UserIcon, new Size(80, 80)),
+            EmergencyContacts = new List<EmergencyContact>()
+            { 
+                new EmergencyContact()
+                {
+                    Id = 0,
+                    Name = "Pollo",
+                    Phone = "942344234",
+                    Relation = Relation.FAMILIAR
+                }
+            }
         };
 
         public LoginForm()
@@ -59,7 +69,7 @@ namespace Presentacion
             }
             else
             {
-                MessageBox.Show("Datos Incorrectos", "", MessageBoxButtons.OK);
+                MessageBox.Show("Invalid Data", "", MessageBoxButtons.OK);
             }
         }
     }

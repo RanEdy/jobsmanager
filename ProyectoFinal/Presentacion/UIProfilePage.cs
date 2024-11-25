@@ -38,8 +38,8 @@ namespace Presentacion
                 CellBorderStyle = TableLayoutPanelCellBorderStyle.Single,
                 Dock = DockStyle.Fill,
             };
-            tablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.0f));
-            tablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.0f));
+            tablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.0f));
+            tablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.0f));
 
             fieldsPanel = new FlowLayoutPanel()
             {
@@ -176,10 +176,18 @@ namespace Presentacion
                         p.Controls.Add(c2, 0, 1);
                         break;
                     case "Address":
-                        
+                        Address ua = userData.Address;
+                        Label labelAddress = new Label()
+                        {
+                            Text = $"{ua.Street}, {ua.City}, {ua.State}   ZIP:   {ua.PostalCode}   number: {ua.HouseNumber}",
+                            Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
+                            ForeColor = Style.GRAY,
+                            Width = p.Width * 70 / 100
+                        };
+                        p.Controls.Add(labelAddress, 0, 1);
                         p.Controls["b" + name].Click += new EventHandler((object sender, EventArgs e) =>
                         {
-                            AddresEditForm edit  = new AddresEditForm();
+                            AddresEditForm edit  = new AddresEditForm(userData);
                             edit.Show();
                         });
                         

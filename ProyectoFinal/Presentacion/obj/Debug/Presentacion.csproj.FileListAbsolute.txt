@@ -34,3 +34,4 @@ C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presenta.BC77CD05.Up2Date
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddresEditForm.resources

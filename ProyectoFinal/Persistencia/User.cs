@@ -44,7 +44,7 @@ namespace Persistencia
         public bool                   HasGuardCard { get; set; }
         public Image                  ProfileImage { get; set; }
         public List<EmergencyContact> EmergencyContacts { get; set; }
-        //Falta la Lista de las solicitudes
-        //Falta la lista de los trabajos registrados
+        public List<Request> JobRequest { get; set; }
+        public List<Job> Jobs { get; set; }
     }
 }

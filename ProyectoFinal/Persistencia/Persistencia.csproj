@@ -45,6 +45,7 @@
     <Compile Include="Job.cs" />
     <Compile Include="Relation.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="RequestState.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserFieldEditable.cs" />
     <Compile Include="UserSql.cs" />

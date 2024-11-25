@@ -69,7 +69,7 @@ namespace Presentacion
             else { this.Size = screenSize; }
             this.Width = (this.Width * widthPercentage) / 100;
             this.Height = (this.Height * heightPercentage) / 100;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void InitGeneralPanels()
         {
