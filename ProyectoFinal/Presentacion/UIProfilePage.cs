@@ -179,7 +179,7 @@ namespace Presentacion
                         Address ua = userData.Address;
                         Label labelAddress = new Label()
                         {
-                            Text = $"{ua.Street}, {ua.City}, {ua.State}   ZIP:   {ua.PostalCode}   number: {ua.HouseNumber}",
+                            Text = $"{ua.Street}, {ua.City}, {ua.State}   ZIP:   {ua.PostalCode}   number: {ua.Number}",
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
                             ForeColor = Style.GRAY,
                             Width = p.Width * 70 / 100
@@ -225,10 +225,10 @@ namespace Presentacion
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
                             Enabled = false,
                         };
-                        cb.Items.Add(UserType.WORKER.ToString());
-                        cb.Items.Add(UserType.SUPERIVSOR.ToString());
                         cb.Items.Add(UserType.ADMIN.ToString());
-                        cb.SelectedIndex = (int)loggedUser.UserType;
+                        cb.Items.Add(UserType.SUPERIVSOR.ToString());
+                        cb.Items.Add(UserType.WORKER.ToString());
+                        cb.SelectedIndex = ((int)loggedUser.UserType);
                         p.Controls.Add(cb, 0, 1);
                         break;
                     //Nueva ventana

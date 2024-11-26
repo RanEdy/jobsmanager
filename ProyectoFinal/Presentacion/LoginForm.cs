@@ -30,7 +30,7 @@ namespace Presentacion
                 State = "California",
                 City = "Test City",
                 Street = "Test Street",
-                HouseNumber = "043",
+                Number = "043",
                 PostalCode = "123456"
             },
             Phone = "5551112233",

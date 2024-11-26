@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\addreseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\addreseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,39 +34,65 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserType.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\UserType.cs",
+              "RelativeDocumentMoniker": "Persistencia\\UserType.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\UserType.cs",
+              "RelativeToolTip": "Persistencia\\UserType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T05:29:16.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UIProfilePage.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
+              "RelativeDocumentMoniker": "Presentacion\\UIProfilePage.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
+              "RelativeToolTip": "Presentacion\\UIProfilePage.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAIwOUAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T05:26:21.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\Address.cs",
+              "RelativeDocumentMoniker": "Persistencia\\Address.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\Address.cs",
+              "RelativeToolTip": "Persistencia\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T05:25:40.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
               "RelativeDocumentMoniker": "Presentacion\\MainForm.cs",
               "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
               "RelativeToolTip": "Presentacion\\MainForm.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwD0AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwD0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T16:57:54.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddresEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\AddresEditForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\AddresEditForm.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\AddresEditForm.cs",
-              "RelativeToolTip": "Presentacion\\AddresEditForm.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAEQAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:57:22.005Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs",
               "RelativeDocumentMoniker": "Presentacion\\LoginForm.cs",
               "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs",
               "RelativeToolTip": "Presentacion\\LoginForm.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAUwBMAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAiwBMAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T18:19:45.581Z",
               "EditorCaption": ""

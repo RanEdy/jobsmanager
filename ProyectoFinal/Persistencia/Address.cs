@@ -12,6 +12,6 @@ namespace Persistencia
         public string City { get; set; }
         public string State { get; set; }
         public string PostalCode { get; set; }
-        public string HouseNumber { get; set; }
+        public string Number { get; set; }
     }
 }

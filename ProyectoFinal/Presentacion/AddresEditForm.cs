@@ -21,7 +21,7 @@ namespace Presentacion
         private TableLayoutPanel fieldsPanel;
         private FlowLayoutPanel optionsPanel;
         private Button acceptButton, cancelButton;
-        private readonly string[] addressFieldNames = { "Street", "City", "State", "Postal Code", "House Number" };
+        private readonly string[] addressFieldNames = { "Street", "City", "State", "Postal Code", "Number" };
         private List<TextBox> inputFields = new List<TextBox>();
         public AddresEditForm(User user)
         {
@@ -99,7 +99,7 @@ namespace Presentacion
             inputFields[1].Text = userData.Address.City;
             inputFields[2].Text = userData.Address.State;
             inputFields[3].Text = userData.Address.PostalCode;
-            inputFields[4].Text = userData.Address.HouseNumber;
+            inputFields[4].Text = userData.Address.Number;
         }
 
         private void InitButtons()
