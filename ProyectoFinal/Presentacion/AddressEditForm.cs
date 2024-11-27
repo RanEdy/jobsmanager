@@ -11,7 +11,7 @@ using Persistencia;
 
 namespace Presentacion
 {
-    public partial class AddresEditForm : Form
+    public partial class AddressEditForm : Form
     {
         public Label externLabel {  get; set; }
         private User userData;
@@ -25,7 +25,7 @@ namespace Presentacion
         private Button acceptButton, cancelButton, resetButton;
         private readonly string[] addressFieldNames = { "Street", "City", "State", "Postal Code", "Number" };
         private List<TextBox> inputFields = new List<TextBox>();
-        public AddresEditForm(User user, Address modifiedAddress)
+        public AddressEditForm(User user, Address modifiedAddress)
         {
             this.modifiedAddress = modifiedAddress;
             userData = user;

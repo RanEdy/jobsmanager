@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class AddresEditForm
+    partial class AddressEditForm
     {
         /// <summary>
         /// Required designer variable.

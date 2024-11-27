@@ -15,7 +15,7 @@ namespace Presentacion
     {
         public bool AdminMode {  get; set; }
 
-        private AddresEditForm addresEditForm;
+        private AddressEditForm addresEditForm;
         private TableLayoutPanel tablePanel;
         private FlowLayoutPanel fieldsPanel;
         private FlowLayoutPanel savePanel;
@@ -29,7 +29,7 @@ namespace Presentacion
         public UIProfilePage(Size size, User user)
         {
             userData = user;
-            addresEditForm = new AddresEditForm(userData, modifiedAddress);
+            addresEditForm = new AddressEditForm(userData, modifiedAddress);
             addresEditForm.Hide();
 
             this.Size = size;
