@@ -41,14 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="ConnectionDB.cs" />
     <Compile Include="EmergencyContact.cs" />
+    <Compile Include="EmergencyContactSQL.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="Relation.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="RequestSQL.cs" />
     <Compile Include="RequestState.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserFieldEditable.cs" />
-    <Compile Include="UserSql.cs" />
+    <Compile Include="UserSQL.cs" />
     <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup>

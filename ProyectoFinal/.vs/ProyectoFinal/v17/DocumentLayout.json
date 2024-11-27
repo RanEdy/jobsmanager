@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\usersql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\usersql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\requestsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\requestsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\emergencycontactsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\emergencycontactsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\negocio\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|solutionrelative:negocio\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\addreseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\addreseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\persistencia\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserType.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\UserType.cs",
-              "RelativeDocumentMoniker": "Persistencia\\UserType.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\UserType.cs",
-              "RelativeToolTip": "Persistencia\\UserType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RequestSQL.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\RequestSQL.cs",
+              "RelativeDocumentMoniker": "Persistencia\\RequestSQL.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\RequestSQL.cs",
+              "RelativeToolTip": "Persistencia\\RequestSQL.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwFsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T05:29:16.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UIProfilePage.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
-              "RelativeDocumentMoniker": "Presentacion\\UIProfilePage.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
-              "RelativeToolTip": "Presentacion\\UIProfilePage.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAAAIwOUAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T05:26:21.457Z",
+              "WhenOpened": "2024-11-27T06:50:33.618Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Address.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\Address.cs",
-              "RelativeDocumentMoniker": "Persistencia\\Address.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\Address.cs",
-              "RelativeToolTip": "Persistencia\\Address.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
+              "Title": "EmergencyContactSQL.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\EmergencyContactSQL.cs",
+              "RelativeDocumentMoniker": "Persistencia\\EmergencyContactSQL.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\EmergencyContactSQL.cs",
+              "RelativeToolTip": "Persistencia\\EmergencyContactSQL.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAwwGoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T05:25:40.93Z",
+              "WhenOpened": "2024-11-27T06:40:15.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\MainForm.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\MainForm.cs",
-              "RelativeToolTip": "Presentacion\\MainForm.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwD0AAAAjAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserSQL.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\UserSQL.cs",
+              "RelativeDocumentMoniker": "Persistencia\\UserSQL.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\UserSQL.cs",
+              "RelativeToolTip": "Persistencia\\UserSQL.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAwwHkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:57:54.374Z",
+              "WhenOpened": "2024-11-27T06:39:41.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\UserController.cs",
+              "RelativeDocumentMoniker": "Negocio\\UserController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\UserController.cs",
+              "RelativeToolTip": "Negocio\\UserController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T06:26:32.371Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\LoginForm.cs",
-              "RelativeToolTip": "Presentacion\\LoginForm.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAiwBMAAAAvAAAAAAAAAA==",
+              "Title": "AddresEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\AddresEditForm.cs",
+              "RelativeDocumentMoniker": "Presentacion\\AddresEditForm.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\AddresEditForm.cs",
+              "RelativeToolTip": "Presentacion\\AddresEditForm.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAHEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T18:19:45.581Z",
+              "WhenOpened": "2024-11-26T23:42:17.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UIProfilePage.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
+              "RelativeDocumentMoniker": "Presentacion\\UIProfilePage.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
+              "RelativeToolTip": "Presentacion\\UIProfilePage.cs",
+              "ViewState": "AgIAABsBAAAAAAAAAAAIwJgBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T21:14:33.628Z",
               "EditorCaption": ""
             }
           ]

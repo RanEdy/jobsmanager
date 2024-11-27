@@ -1,28 +1,203 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Persistencia
 {
-    public class UserSql
+    public class UserSQL
     {
+        ConnectionDB connection = new ConnectionDB();
 
-        //Esta funcion deberia de regresar un DataTable con UNA SOLA fila
-        //De lo contrario el usuario esta repetido en la base de datos
-        public DataTable QueryUser(string email, string password)
+        MySqlCommand command = new MySqlCommand();
+        MySqlDataReader reader;
+        DataTable table = new DataTable();
+
+        public static byte[] ImageToBytes(Image image)
         {
-            return null;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray();
+            }
         }
 
         //Esta funcion deberia de regresar un DataTable con UNA SOLA fila
         //De lo contrario el usuario esta repetido en la base de datos
-        public DataTable QueryUser(int id)
+        public DataTable GetUserLogin(string email, string password)
         {
-            return null;
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ObtenerUsuarioLogin";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_email", email);
+            command.Parameters.AddWithValue("@p_password", password);
+
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+            return table;
         }
 
+        //Esta funcion deberia de regresar un DataTable con UNA SOLA fila
+        //De lo contrario el usuario esta repetido en la base de datos
+        public DataTable GetUser(int id)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ObtenerUsuario";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_id", id);
+
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+            return table;
+        }
+
+        public DataTable QueryUsersNoPassword()
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ConsultarUsuariosNoPassword";
+            command.CommandType = CommandType.StoredProcedure;
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            connection.CloseConnection();
+            return table;
+        }
+
+        public DataTable QueryUsers()
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ConsultarUsuarios";
+            command.CommandType = CommandType.StoredProcedure;
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            connection.CloseConnection();
+            return table;
+        }
+
+        public DataTable QueryUsersByJob(int id)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ConsultarUsuariosPorTrabajo";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_id", id);
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+            return table;
+        }
+
+        public DataTable VerifyEmail(string email)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ConsultarUsuariosPorTrabajo";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_correo", email);
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+            return table;
+        }
+
+        public void InsertUser(User user)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "InsertarUsuario";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_nombre", user.Name);
+            command.Parameters.AddWithValue("@p_correo", user.Email);
+            command.Parameters.AddWithValue("@p_password", user.Password);
+            command.Parameters.AddWithValue("@p_nacimiento", user.Birthday.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@p_telefono", user.Phone);
+            command.Parameters.AddWithValue("@p_contratacion", user.HireDate.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@p_tarjeta", user.HasGuardCard);
+            command.Parameters.AddWithValue("@p_imagen", ImageToBytes(user.ProfileImage));
+            command.Parameters.AddWithValue("@p_tipo", user.UserType.ToString());
+            command.Parameters.AddWithValue("@p_calle", user.Address.Street);
+            command.Parameters.AddWithValue("@p_ciudad", user.Address.City);
+            command.Parameters.AddWithValue("@p_estado", user.Address.State);
+            command.Parameters.AddWithValue("@p_postal", user.Address.PostalCode);
+            command.Parameters.AddWithValue("@p_numero", user.Address.Number);
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+        }
+
+        public void EditUser(User user)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "EditarUsuario";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_id", user.Id);
+            command.Parameters.AddWithValue("@p_nombre", user.Name);
+            command.Parameters.AddWithValue("@p_correo", user.Email);
+            command.Parameters.AddWithValue("@p_password", user.Password);
+            command.Parameters.AddWithValue("@p_nacimiento", user.Birthday.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@p_telefono", user.Phone);
+            command.Parameters.AddWithValue("@p_contratacion", user.HireDate.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@p_tarjeta", user.HasGuardCard);
+            command.Parameters.AddWithValue("@p_imagen", ImageToBytes(user.ProfileImage));
+            command.Parameters.AddWithValue("@p_tipo", user.UserType.ToString());
+            command.Parameters.AddWithValue("@p_calle", user.Address.Street);
+            command.Parameters.AddWithValue("@p_ciudad", user.Address.City);
+            command.Parameters.AddWithValue("@p_estado", user.Address.State);
+            command.Parameters.AddWithValue("@p_postal", user.Address.PostalCode);
+            command.Parameters.AddWithValue("@p_numero", user.Address.Number);
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+        }
+
+        public void DeleteUser(int id)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "EliminarUsuario";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_id", id);
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+        }
     }
 }

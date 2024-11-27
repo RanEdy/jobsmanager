@@ -13,18 +13,21 @@ namespace Presentacion
 {
     public partial class AddresEditForm : Form
     {
+        public Label externLabel {  get; set; }
         private User userData;
+        private Address modifiedAddress;
         private Size maxSize = new Size(1000, 1000);
         private int widthPercentage = 50;
         private int heightPercentage = 40;
 
         private TableLayoutPanel fieldsPanel;
         private FlowLayoutPanel optionsPanel;
-        private Button acceptButton, cancelButton;
+        private Button acceptButton, cancelButton, resetButton;
         private readonly string[] addressFieldNames = { "Street", "City", "State", "Postal Code", "Number" };
         private List<TextBox> inputFields = new List<TextBox>();
-        public AddresEditForm(User user)
+        public AddresEditForm(User user, Address modifiedAddress)
         {
+            this.modifiedAddress = modifiedAddress;
             userData = user;
             InitializeComponent();
             CalculateSize();
@@ -100,6 +103,12 @@ namespace Presentacion
             inputFields[2].Text = userData.Address.State;
             inputFields[3].Text = userData.Address.PostalCode;
             inputFields[4].Text = userData.Address.Number;
+
+            modifiedAddress.Street = userData.Address.Street;
+            modifiedAddress.City = userData.Address.City;
+            modifiedAddress.State = userData.Address.State;
+            modifiedAddress.PostalCode = userData.Address.PostalCode;
+            modifiedAddress.Number = userData.Address.Number;
         }
 
         private void InitButtons()
@@ -115,7 +124,20 @@ namespace Presentacion
             };
             acceptButton.Click += new EventHandler((object sender, EventArgs e) =>
             {
-                
+                if (VerifyFields())
+                {
+                    modifiedAddress.Street = inputFields[0].Text;
+                    modifiedAddress.City = inputFields[1].Text;
+                    modifiedAddress.State = inputFields[2].Text;
+                    modifiedAddress.PostalCode = inputFields[3].Text;
+                    modifiedAddress.Number = inputFields[4].Text;
+                    externLabel.Text = $"{modifiedAddress.Street},{modifiedAddress.City}, {modifiedAddress.State}   ZIP:   {modifiedAddress.PostalCode}   Number: {modifiedAddress.Number}";
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Incomplete fields");
+                }
             });
             optionsPanel.Controls.Add(acceptButton);
 
@@ -130,9 +152,51 @@ namespace Presentacion
             };
             cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
             {
-                this.Dispose();
+
+                this.Hide();
+                inputFields[0].Text = modifiedAddress.Street;
+                inputFields[1].Text = modifiedAddress.City;
+                inputFields[2].Text = modifiedAddress.State;
+                inputFields[3].Text = modifiedAddress.PostalCode;
+                inputFields[4].Text = modifiedAddress.Number;
             });
             optionsPanel.Controls.Add(cancelButton);
+
+            resetButton = new Button()
+            {
+                AutoSize = true,
+                Text = "RESET",
+                BackColor = Style.BLUE,
+                ForeColor = Style.WHITE,
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 22, FontStyle.Bold),
+                Anchor = AnchorStyles.None
+            };
+            resetButton.Click += new EventHandler((object sender, EventArgs e) =>
+            {
+                inputFields[0].Text = userData.Address.Street;
+                inputFields[1].Text = userData.Address.City;
+                inputFields[2].Text = userData.Address.State;
+                inputFields[3].Text = userData.Address.PostalCode;
+                inputFields[4].Text = userData.Address.Number;
+
+                modifiedAddress.Street = userData.Address.Street;
+                modifiedAddress.City = userData.Address.City;
+                modifiedAddress.State = userData.Address.State;
+                modifiedAddress.PostalCode = userData.Address.PostalCode;
+                modifiedAddress.Number = userData.Address.Number;
+
+                externLabel.Text = $"{modifiedAddress.Street}, {modifiedAddress.City}, {modifiedAddress.State}   ZIP:   {modifiedAddress.PostalCode}   Number: {modifiedAddress.Number}";
+            });
+            optionsPanel.Controls.Add(resetButton);
+        }
+
+        private bool VerifyFields()
+        {
+            foreach (TextBox t in inputFields)
+            {
+                if (t.Text.Trim().Length == 0) return false;
+            }
+            return true;    
         }
     }
 }

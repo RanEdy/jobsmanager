@@ -18,7 +18,7 @@ namespace Negocios
         ///</summary>
         public bool VerifyAndLogUser(string email, string password)
         {
-            User user = userController.QueryUser(email, password);
+            User user = userController.GetUserLogin(email, password);
             if (user != null)
             {
                 if (user.IsActivated)
@@ -28,7 +28,7 @@ namespace Negocios
                 }
             }
             //TODO::Cambiarlo a false cuando ya este implmentada la base de datos
-            return true;
+            return false;
         }
     }
 }
