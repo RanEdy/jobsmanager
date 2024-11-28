@@ -16,7 +16,9 @@ namespace Presentacion
         public bool AdminMode {  get; set; }
 
         private AddressEditForm addresEditForm;
+        private EmergencyContactEditForm emergencyContactEditForm;
         private TableLayoutPanel tablePanel;
+        private TableLayoutPanel inputFieldPanel;
         private FlowLayoutPanel fieldsPanel;
         private FlowLayoutPanel savePanel;
         private Button saveButton;
@@ -31,6 +33,8 @@ namespace Presentacion
             userData = user;
             addresEditForm = new AddressEditForm(userData, modifiedAddress);
             addresEditForm.Hide();
+            emergencyContactEditForm = new EmergencyContactEditForm(userData.Id);
+            emergencyContactEditForm.Hide();
 
             this.Size = size;
             this.BackColor = Style.WHITE;
@@ -98,7 +102,7 @@ namespace Presentacion
 
                 if (name == "Profile Image") continue;
 
-                TableLayoutPanel p = new TableLayoutPanel()
+                inputFieldPanel = new TableLayoutPanel()
                 {
                     Size = new Size(fieldsPanel.Width-25, fieldsPanel.Height * 15 / 100),
                     ColumnCount = 2,
@@ -111,10 +115,10 @@ namespace Presentacion
                     Dock = DockStyle.Fill,
                 };
 
-                p.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80.0f));
-                p.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.0f));
-                p.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
-                p.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
+                inputFieldPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80.0f));
+                inputFieldPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.0f));
+                inputFieldPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
+                inputFieldPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
 
                 Label l_name = new Label()
                 {
@@ -125,14 +129,14 @@ namespace Presentacion
                     Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
                     Name = "l" + name
                 };
-                p.Controls.Add(l_name, 0, 0);
+                inputFieldPanel.Controls.Add(l_name, 0, 0);
 
                 TextBox t = new TextBox()
                 {
                     Dock = DockStyle.Fill,
                     Anchor = AnchorStyles.Left,
                     Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                    Width = p.Width * 70 / 100,
+                    Width = inputFieldPanel.Width * 70 / 100,
                     Enabled = false,
                     Name = "t" + name
                 };
@@ -166,26 +170,26 @@ namespace Presentacion
                     || editable == UserFieldEditable.WORKER_ADMIN_EDITABLE) 
                     && UserController.IsLoggedUserAdmin())
                 {
-                    p.Controls.Add(buttonsPanel, 1, 1);
+                    inputFieldPanel.Controls.Add(buttonsPanel, 1, 1);
                 }
 
                 if ( ( editable == UserFieldEditable.WORKER_ADMIN_EDITABLE
                     || editable == UserFieldEditable.WORKER_EDITABLE)
                     && !UserController.IsLoggedUserAdmin() )
                 {
-                    p.Controls.Add(buttonsPanel, 1, 1);
+                    inputFieldPanel.Controls.Add(buttonsPanel, 1, 1);
                 }
 
                 switch (name)
                 {
                     case "Id":
                         t.Text = "" + loggedUser.Id;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         
                         break;
                     case "Name":
                         t.Text = loggedUser.Name;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             t.Enabled = true;
@@ -203,7 +207,7 @@ namespace Presentacion
                         break;
                     case "Email":
                         t.Text = loggedUser.Email;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             t.Enabled = true;
@@ -222,7 +226,7 @@ namespace Presentacion
                     case "Password":
                         t.Text = loggedUser.Password;
                         t.UseSystemPasswordChar = true;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             t.Enabled = true;
@@ -240,15 +244,15 @@ namespace Presentacion
                         break;
                     case "Age":
                         t.Text = "" + loggedUser.Age;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         break;
                     case "Seniority":
                         t.Text = "" + loggedUser.Seniority;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         break;
                     case "Phone":
                         t.Text = loggedUser.Phone;
-                        p.Controls.Add(t, 0, 1);
+                        inputFieldPanel.Controls.Add(t, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             t.Enabled = true;
@@ -270,11 +274,11 @@ namespace Presentacion
                             Text = "Is Active",
                             Name = "c" + name,
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = p.Width * 70 / 100,
+                            Width = inputFieldPanel.Width * 70 / 100,
                             CheckAlign = ContentAlignment.MiddleLeft,
                             Checked = loggedUser.IsActivated
                         };
-                        p.Controls.Add(c1, 0, 1);
+                        inputFieldPanel.Controls.Add(c1, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             c1.Enabled = true;
@@ -295,11 +299,11 @@ namespace Presentacion
                             Text = "Has Guard Card",
                             Name = "c" + name,
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = p.Width * 70 / 100,
+                            Width = inputFieldPanel.Width * 70 / 100,
                             CheckAlign = ContentAlignment.MiddleLeft,
                             Checked = loggedUser.HasGuardCard
                         };
-                        p.Controls.Add(c2, 0, 1);
+                        inputFieldPanel.Controls.Add(c2, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             c2.Enabled = true;
@@ -321,9 +325,9 @@ namespace Presentacion
                             Text = $"{ua.Street}, {ua.City}, {ua.State}   ZIP:   {ua.PostalCode}   Number: {ua.Number}",
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 10),
                             ForeColor = Style.GRAY,
-                            Width = p.Width * 70 / 100
+                            Width = inputFieldPanel.Width * 70 / 100
                         };
-                        p.Controls.Add(labelAddress, 0, 1);
+                        inputFieldPanel.Controls.Add(labelAddress, 0, 1);
                         addresEditForm.externLabel = labelAddress;
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
@@ -336,10 +340,10 @@ namespace Presentacion
                             Name = "dt" + name,
                             Value = loggedUser.Birthday,
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = p.Width,
+                            Width = inputFieldPanel.Width,
                             Enabled = false,
                         };
-                        p.Controls.Add(dt1, 0, 1);
+                        inputFieldPanel.Controls.Add(dt1, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             dt1.Enabled = true;
@@ -360,10 +364,10 @@ namespace Presentacion
                             Name = "dt" + name,
                             Value = loggedUser.HireDate,
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = p.Width,
+                            Width = inputFieldPanel.Width,
                             Enabled = false
                         };
-                        p.Controls.Add(dt2, 0, 1);
+                        inputFieldPanel.Controls.Add(dt2, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             dt2.Enabled = true;
@@ -382,7 +386,7 @@ namespace Presentacion
                         ComboBox cb = new ComboBox()
                         {
                             Name = "cb" + name,
-                            Width = p.Width * 50 / 100,
+                            Width = inputFieldPanel.Width * 50 / 100,
                             Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
                             Enabled = false,
                         };
@@ -390,7 +394,7 @@ namespace Presentacion
                         cb.Items.Add(UserType.SUPERIVSOR.ToString());
                         cb.Items.Add(UserType.WORKER.ToString());
                         cb.SelectedIndex = ((int)loggedUser.UserType);
-                        p.Controls.Add(cb, 0, 1);
+                        inputFieldPanel.Controls.Add(cb, 0, 1);
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
                             cb.Enabled = true;
@@ -408,11 +412,11 @@ namespace Presentacion
                     case "Emergency Contacts":
                         editButton.Click += new EventHandler((object sender, EventArgs e) =>
                         {
-                            
+                            emergencyContactEditForm.Show();
                         });
                         break;
                 }
-                fieldsPanel.Controls.Add(p);
+                fieldsPanel.Controls.Add(inputFieldPanel);
             }
         }
 

@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\",
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\emergencycontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\emergencycontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\emergencycontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\emergencycontactblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\usuario\\dev\\jobsmanager\\proyectofinal\\presentacion\\emergencycontactblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\emergencycontactblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiprofilepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\negocio\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|solutionrelative:negocio\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\addresseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\addresseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\persistencia\\emergencycontactsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\emergencycontactsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\persistencia\\emergencycontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\emergencycontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,130 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\UserController.cs",
-              "RelativeDocumentMoniker": "Negocio\\UserController.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\UserController.cs",
-              "RelativeToolTip": "Negocio\\UserController.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T22:56:33.654Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "EmergencyContactBlock.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactBlock.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactBlock.cs",
               "RelativeDocumentMoniker": "Presentacion\\EmergencyContactBlock.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactBlock.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactBlock.cs",
               "RelativeToolTip": "Presentacion\\EmergencyContactBlock.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAAAJIAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAwwFoAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T23:02:41.695Z",
+              "WhenOpened": "2024-11-28T05:32:48.514Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "EmergencyContactEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactEditForm.cs",
               "RelativeDocumentMoniker": "Presentacion\\EmergencyContactEditForm.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactEditForm.cs*",
-              "RelativeToolTip": "Presentacion\\EmergencyContactEditForm.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\EmergencyContactEditForm.cs",
+              "RelativeToolTip": "Presentacion\\EmergencyContactEditForm.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwEwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T22:42:54.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AddressEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\AddressEditForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\AddressEditForm.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\AddressEditForm.cs",
-              "RelativeToolTip": "Presentacion\\AddressEditForm.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAQwKoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T23:42:17.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "UIProfilePage.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
               "RelativeDocumentMoniker": "Presentacion\\UIProfilePage.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIProfilePage.cs",
               "RelativeToolTip": "Presentacion\\UIProfilePage.cs",
-              "ViewState": "AgIAAEABAAAAAAAAAAAIwIEBAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAIcBAAAAAAAAAAAAAJ0BAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-26T21:14:33.628Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "c55fa4f9-ef87-405c-b0e8-1d037a200da9",
-        "Display": 0,
-        "X": 927,
-        "Y": 57,
-        "Width": 678,
-        "Height": 800,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EmergencyContactSQL.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\EmergencyContactSQL.cs",
-              "RelativeDocumentMoniker": "Persistencia\\EmergencyContactSQL.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\EmergencyContactSQL.cs",
-              "RelativeToolTip": "Persistencia\\EmergencyContactSQL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T06:40:15.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EmergencyContact.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\EmergencyContact.cs",
-              "RelativeDocumentMoniker": "Persistencia\\EmergencyContact.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\EmergencyContact.cs",
-              "RelativeToolTip": "Persistencia\\EmergencyContact.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T21:12:06.454Z",
               "EditorCaption": ""
             }
           ]

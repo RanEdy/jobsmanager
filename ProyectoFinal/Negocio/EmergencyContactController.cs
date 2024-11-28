@@ -25,7 +25,7 @@ namespace Negocio
                 Id = (int)dr["IDContacto"],
                 IdUser = (int)dr["IDUsuario"],
                 Name = dr["Nombre"].ToString(),
-                Phone = dr["Phone"].ToString(),
+                Phone = dr["Telefono"].ToString(),
                 Relation = (Relation)Enum.Parse(typeof(Relation), dr["Relacion"].ToString())
             };
 

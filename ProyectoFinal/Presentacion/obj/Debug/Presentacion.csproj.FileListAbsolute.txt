@@ -34,7 +34,6 @@ C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presenta.BC77CD05.Up2Date
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.pdb
-C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddresEditForm.resources
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\bin\Debug\MySql.Data.dll
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\bin\Debug\Google.Protobuf.dll
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\bin\Debug\ZstdSharp.dll
@@ -92,3 +91,5 @@ C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\bin\Debug\System.Numer
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.exe.config
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddressEditForm.resources
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddressEditForm.resources
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.EmergencyContactEditForm.resources
