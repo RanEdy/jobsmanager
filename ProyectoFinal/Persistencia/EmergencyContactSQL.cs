@@ -16,7 +16,7 @@ namespace Persistencia
         MySqlDataReader reader;
         DataTable table = new DataTable();
 
-        public DataTable QueryEmergencyContactByUser(int id)
+        public DataTable QueryEmergencyContactsByUser(int id)
         {
             command.Connection = connection.OpenConnection();
             command.CommandText = "ConsultarContactosEmergenciaPorUsuario";
@@ -102,13 +102,13 @@ namespace Persistencia
             connection.CloseConnection();
         }
 
-        public void DeleteEmergencyContact(EmergencyContact emergencyContact, int id)
+        public void DeleteEmergencyContact(int idContact, int idUser)
         {
             command.Connection = connection.OpenConnection();
             command.CommandText = "EliminarContactoEmergencia";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@p_idUsuario", id);
-            command.Parameters.AddWithValue("@p_idContacto", emergencyContact.Id);
+            command.Parameters.AddWithValue("@p_idUsuario", idUser);
+            command.Parameters.AddWithValue("@p_idContacto", idContact);
 
             command.ExecuteNonQuery();
             command.Parameters.Clear();

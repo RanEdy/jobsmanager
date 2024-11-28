@@ -46,6 +46,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmergencyContactController.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>

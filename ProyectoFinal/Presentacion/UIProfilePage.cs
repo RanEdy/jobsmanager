@@ -103,8 +103,6 @@ namespace Presentacion
                     Size = new Size(fieldsPanel.Width-25, fieldsPanel.Height * 15 / 100),
                     ColumnCount = 2,
                     RowCount = 2,
-                    CellBorderStyle = TableLayoutPanelCellBorderStyle.Single,
-                    BackColor = Color.LightGray,
                 };
 
                 FlowLayoutPanel buttonsPanel = new FlowLayoutPanel()
@@ -408,10 +406,19 @@ namespace Presentacion
                         });
                         break;
                     case "Emergency Contacts":
+                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
+                        {
+                            
+                        });
                         break;
                 }
                 fieldsPanel.Controls.Add(p);
             }
+        }
+
+        private void InitProfileImage()
+        {
+
         }
     }
 }
