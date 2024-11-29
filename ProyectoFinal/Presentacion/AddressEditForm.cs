@@ -13,7 +13,7 @@ namespace Presentacion
 {
     public partial class AddressEditForm : Form
     {
-        public Label externLabel {  get; set; }
+        
         private User userData;
         private Address modifiedAddress;
         private Size maxSize = new Size(1000, 1000);
@@ -131,7 +131,6 @@ namespace Presentacion
                     modifiedAddress.State = inputFields[2].Text;
                     modifiedAddress.PostalCode = inputFields[3].Text;
                     modifiedAddress.Number = inputFields[4].Text;
-                    externLabel.Text = $"{modifiedAddress.Street},{modifiedAddress.City}, {modifiedAddress.State}   ZIP:   {modifiedAddress.PostalCode}   Number: {modifiedAddress.Number}";
                     this.Hide();
                 }
                 else
@@ -184,8 +183,6 @@ namespace Presentacion
                 modifiedAddress.State = userData.Address.State;
                 modifiedAddress.PostalCode = userData.Address.PostalCode;
                 modifiedAddress.Number = userData.Address.Number;
-
-                externLabel.Text = $"{modifiedAddress.Street}, {modifiedAddress.City}, {modifiedAddress.State}   ZIP:   {modifiedAddress.PostalCode}   Number: {modifiedAddress.Number}";
             });
             optionsPanel.Controls.Add(resetButton);
         }

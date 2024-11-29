@@ -93,3 +93,4 @@ C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddressEditForm.resources
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddressEditForm.resources
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.EmergencyContactEditForm.resources
+C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.EmergencyContactEditForm.resources

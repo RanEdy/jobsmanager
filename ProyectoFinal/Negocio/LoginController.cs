@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Persistencia;
 
-namespace Negocios
+namespace Negocio
 {
     public class LoginController
     {

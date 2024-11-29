@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Negocio;
+using Persistencia;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -6,46 +8,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Negocios;
-using Persistencia;
 
 namespace Presentacion
 {
     public class UIProfilePage : Panel
     {
-        public bool AdminMode {  get; set; }
+        public bool AdminMode { get; set; }
 
-        private AddressEditForm addresEditForm;
+        private AddressEditForm addressEditForm;
         private EmergencyContactEditForm emergencyContactEditForm;
         private TableLayoutPanel tablePanel;
-        private TableLayoutPanel inputFieldPanel;
         private FlowLayoutPanel fieldsPanel;
         private FlowLayoutPanel savePanel;
+        private TableLayoutPanel imagePanel;
         private Button saveButton;
 
         private User userData;
-        private Address modifiedAddress = new Address();
-        private User loggedUser = UserController.GetLoggedUser();
-        private UserController userController = new UserController();
+        private Address modifiedAddress;
+        private Image modifiedImage;
+        private UserController userController;
 
         public UIProfilePage(Size size, User user)
         {
             userData = user;
-            addresEditForm = new AddressEditForm(userData, modifiedAddress);
-            addresEditForm.Hide();
+            modifiedImage = user.ProfileImage;
+            modifiedAddress = user.Address;
+            addressEditForm = new AddressEditForm(userData, modifiedAddress);
             emergencyContactEditForm = new EmergencyContactEditForm(userData.Id);
-            emergencyContactEditForm.Hide();
+            userController = new UserController();
 
+            InitializeUI(size);
+        }
+
+        private void InitializeUI(Size size)
+        {
             this.Size = size;
             this.BackColor = Style.WHITE;
             this.Dock = DockStyle.Fill;
+
             InitPanels();
             InitFields();
+            InitProfileImage();
         }
 
         private void InitPanels()
         {
-            tablePanel = new TableLayoutPanel()
+            //Tabla que se divide en 2 para la imagen y lo otros campos
+            tablePanel = new TableLayoutPanel
             {
                 ColumnCount = 2,
                 RowCount = 1,
@@ -56,7 +65,8 @@ namespace Presentacion
             tablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.0f));
             tablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70.0f));
 
-            fieldsPanel = new FlowLayoutPanel()
+            //Panel de todos los campos
+            fieldsPanel = new FlowLayoutPanel
             {
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
@@ -64,31 +74,48 @@ namespace Presentacion
                 Padding = new Padding(10)
             };
 
-            savePanel = new FlowLayoutPanel()
+            imagePanel = new TableLayoutPanel
+            {
+                ColumnCount = 1,
+                RowCount = 2,
+                BackColor = Style.LIGHT_GRAY,
+                AutoSize = true,
+                Padding = new Padding(this.Width * 5 / 100, 0, 0, 0)
+            };
+            tablePanel.Controls.Add(imagePanel, 0, 0);
+
+            savePanel = new FlowLayoutPanel
             {
                 AutoSize = true,
                 Dock = DockStyle.Bottom,
                 BackColor = Style.LIGHT_GRAY,
             };
 
-            Button saveButton = new Button()
+            saveButton = new Button
             {
                 AutoSize = true,
                 Text = "SAVE",
                 BackColor = Style.LIGHT_GREEN,
                 ForeColor = Style.WHITE,
-                Font = new Font(Style.FONT_BAHNSCHRTFT, 26, FontStyle.Bold),
-                Anchor = AnchorStyles.None,
-                Margin = new Padding(this.Width * 42/ 100, 0, 0, 0),
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 24, FontStyle.Bold),
                 Width = this.Width * 25 / 100,
             };
-            saveButton.Click += new EventHandler((object sender, EventArgs e) =>
+
+            saveButton.Click += (sender, e) =>
             {
-                userController.EditUser(userData);
-            });
+                if (VerifyFields())
+                {
+                    UpdateUserData();
+                    userController.EditUser(userData);
+                    MessageBox.Show("Data saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
 
             savePanel.Controls.Add(saveButton);
-
             tablePanel.Controls.Add(fieldsPanel, 1, 0);
             this.Controls.Add(tablePanel);
             this.Controls.Add(savePanel);
@@ -96,333 +123,373 @@ namespace Presentacion
 
         private void InitFields()
         {
-            foreach (string name in User.fields_editables.Keys.ToArray())
+            foreach (var field in User.fields_editables)
             {
-                UserFieldEditable editable = User.fields_editables[name];
+                string name = field.Key;
+                UserFieldEditable editable = field.Value;
 
                 if (name == "Profile Image") continue;
 
-                inputFieldPanel = new TableLayoutPanel()
+                if (name == "Address")
                 {
-                    Size = new Size(fieldsPanel.Width-25, fieldsPanel.Height * 15 / 100),
-                    ColumnCount = 2,
-                    RowCount = 2,
+                    AddAddressField();
+                }
+                else if (name == "Emergency Contacts")
+                {
+                    AddEmergencyContactsField();
+                }
+                else
+                {
+                    AddEditableField(name, editable);
+                }
+            }
+        }
+
+        private bool IsFieldEditable(UserFieldEditable editable)
+        {
+            if (editable == UserFieldEditable.NOT_EDITABLE)
+            {
+                return false;
+            }
+            else if (editable == UserFieldEditable.ADMIN_EDITABLE)
+            {
+                return UserController.IsLoggedUserAdmin(); // Solo editable si es administrador
+            }
+            else if (editable == UserFieldEditable.WORKER_EDITABLE)
+            {
+                return !UserController.IsLoggedUserAdmin(); // Solo editable si es empleado
+            }
+            else if (editable == UserFieldEditable.WORKER_ADMIN_EDITABLE)
+            {
+                return true; // Editable por ambos
+            }
+            return false;
+        }
+
+        private void AddEditableField(string name, UserFieldEditable editable)
+        {
+            var panel = new TableLayoutPanel
+            {
+                Size = new Size(fieldsPanel.Width - 25, fieldsPanel.Height * 10 / 100),
+                ColumnCount = 2,
+                RowCount = 1,
+                Name = "t",
+            };
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.0f));
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70.0f));
+            panel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            var label = new Label
+            {
+                AutoSize = true,
+                Text = name,
+                Dock = DockStyle.Fill,
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
+            };
+            panel.Controls.Add(label, 0, 0);
+
+            Control inputControl = CreateInputControl(name);
+            panel.Controls.Add(inputControl, 1, 0);
+
+            inputControl.Enabled = IsFieldEditable(editable);
+
+            fieldsPanel.Controls.Add(panel);
+        }
+
+        private void AddAddressField()
+        {
+            var panel = new TableLayoutPanel
+            {
+                Size = new Size(fieldsPanel.Width - 25, fieldsPanel.Height * 10 / 100),
+                ColumnCount = 2,
+                RowCount = 1,
+                Name = "t",
+            };
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.0f));
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70.0f));
+
+            var label = new Label
+            {
+                Text = "Address",
+                AutoSize = true,
+                Dock = DockStyle.Fill,
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold)
+            };
+            panel.Controls.Add(label, 0, 0);
+
+            var editButton = new Button
+            {
+                AutoSize = true,
+                Text = "EDIT",
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
+                Anchor = AnchorStyles.Left,
+                ForeColor = Style.BLUE,
+                Name = "edit"
+            };
+            editButton.Click += (s, e) => addressEditForm.Show();
+            panel.Controls.Add(editButton, 1, 0);
+            fieldsPanel.Controls.Add(panel);
+        }
+
+        private void AddEmergencyContactsField()
+        {
+            var panel = new TableLayoutPanel
+            {
+                Size = new Size(fieldsPanel.Width - 25, fieldsPanel.Height * 10 / 100),
+                ColumnCount = 2,
+                RowCount = 1,
+                Name = "t",
+            };
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.0f));
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70.0f));
+
+            var label = new Label
+            {
+                Text = "Emergency Contacts",
+                AutoSize = true,
+                Dock = DockStyle.Fill,
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold)
+            };
+            panel.Controls.Add(label, 0, 0);
+            var editButton = new Button
+            {
+                AutoSize = true,
+                Text = "EDIT",
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
+                Anchor = AnchorStyles.Left,
+                ForeColor = Style.BLUE,
+                Name = "edit"
+            };
+            editButton.Click += (s, e) => emergencyContactEditForm.Show();
+            panel.Controls.Add(editButton, 1, 0);
+            fieldsPanel.Controls.Add(panel);
+        }
+
+        private Control CreateInputControl(string name)
+        {
+            if (name == "Email" || name == "Name" || name == "Phone" || name == "Password")
+            {
+                return new TextBox
+                {
+                    Name = name,
+                    Text = GetUserDataValue(name), 
+                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16),
+                    Width = this.Width * 40 /100
                 };
-
-                FlowLayoutPanel buttonsPanel = new FlowLayoutPanel()
+            }
+            else if (name == "Active" || name == "Guard Card")
+            {
+                return new CheckBox
                 {
-                    AutoScroll = false,
-                    Dock = DockStyle.Fill,
-                };
-
-                inputFieldPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80.0f));
-                inputFieldPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.0f));
-                inputFieldPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
-                inputFieldPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
-
-                Label l_name = new Label()
-                {
-                    AutoSize = true,
+                    Name = name,
                     Text = name,
-                    Dock = DockStyle.Fill,
-                    Anchor = AnchorStyles.Left,
-                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
-                    Name = "l" + name
-                };
-                inputFieldPanel.Controls.Add(l_name, 0, 0);
-
-                TextBox t = new TextBox()
-                {
-                    Dock = DockStyle.Fill,
-                    Anchor = AnchorStyles.Left,
+                    Checked = GetUserBooleanValue(name),
+                    CheckAlign = ContentAlignment.MiddleLeft,
                     Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                    Width = inputFieldPanel.Width * 70 / 100,
-                    Enabled = false,
-                    Name = "t" + name
+                    Width = this.Width * 40 / 100
                 };
-
-                Button editButton = new Button()
-                {
-                    AutoSize = true,
-                    Text = "EDIT",
-                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
-                    Anchor = AnchorStyles.None,
-                    ForeColor = Style.BLUE,
-                    Name = "edit" + name
+            }
+            else if (name == "Birthday" || name == "Hire Date")
+            {
+                return new DateTimePicker {
+                    Name = name,
+                    Value = GetUserDateValue(name), 
+                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16),
+                    Width = this.Width * 40 / 100
                 };
-
-                Button cancelButton = new Button()
+            }
+            else if (name == "User Type")
+            {
+                var comboBox = new ComboBox
                 {
-                    AutoSize = true,
-                    Text = "CANCEL",
-                    BackColor = Style.LIGHT_RED,
-                    ForeColor = Style.WHITE,
-                    Font = new Font(Style.FONT_BAHNSCHRTFT, 14, FontStyle.Bold),
-                    Anchor = AnchorStyles.None,
-                    Name = "cancel" + name,
-                    Visible = false
+                    Name = name,
+                    Items = { "ADMIN", "SUPERVISOR", "WORKER" },
+                    SelectedIndex = (int)userData.UserType,
+                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16)
                 };
-
-                buttonsPanel.Controls.Add(editButton);
-                buttonsPanel.Controls.Add(cancelButton);
-
-                if ( ( editable == UserFieldEditable.ADMIN_EDITABLE 
-                    || editable == UserFieldEditable.WORKER_ADMIN_EDITABLE) 
-                    && UserController.IsLoggedUserAdmin())
+                return comboBox;
+            }
+            else if (name == "Id")
+            {
+                return new Label 
                 {
-                    inputFieldPanel.Controls.Add(buttonsPanel, 1, 1);
-                }
-
-                if ( ( editable == UserFieldEditable.WORKER_ADMIN_EDITABLE
-                    || editable == UserFieldEditable.WORKER_EDITABLE)
-                    && !UserController.IsLoggedUserAdmin() )
+                    Name = name,
+                    Text = $"{userData.Id}", 
+                    AutoSize = true, 
+                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16)
+                };
+            }
+            else if (name == "Age")
+            {
+                return new Label
                 {
-                    inputFieldPanel.Controls.Add(buttonsPanel, 1, 1);
-                }
+                    Name = name,
+                    Text = $"{userData.Age} years", 
+                    AutoSize = true, 
+                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16)
+                };
+            }
+            else if (name == "Seniority")
+            {
+                return new Label {
 
-                switch (name)
+                    Name = name,
+                    Text = $"{userData.Seniority} years", 
+                    AutoSize = true, 
+                    Font = new Font(Style.FONT_BAHNSCHRTFT, 16)
+                };
+            }
+            else
+            {
+                return new Label { Text = "" };
+            }
+        }
+
+        private bool VerifyFields()
+        {
+            foreach (var control in fieldsPanel.Controls)
+            {
+                if (control is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                    return false;
+            }
+            return true;
+        }
+
+        private void UpdateUserData()
+        {
+            foreach (Control t in fieldsPanel.Controls)
+            {
+                if (t.Name == "t")
                 {
-                    case "Id":
-                        t.Text = "" + loggedUser.Id;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        
-                        break;
-                    case "Name":
-                        t.Text = loggedUser.Name;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = false;
-                            t.Undo();
-                            t.ClearUndo();
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Email":
-                        t.Text = loggedUser.Email;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = false;
-                            t.Undo();
-                            t.ClearUndo();
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Password":
-                        t.Text = loggedUser.Password;
-                        t.UseSystemPasswordChar = true;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = false;
-                            t.Undo();
-                            t.ClearUndo();
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Age":
-                        t.Text = "" + loggedUser.Age;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        break;
-                    case "Seniority":
-                        t.Text = "" + loggedUser.Seniority;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        break;
-                    case "Phone":
-                        t.Text = loggedUser.Phone;
-                        inputFieldPanel.Controls.Add(t, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            t.Enabled = false;
-                            t.Undo();
-                            t.ClearUndo();
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Active":
-                        CheckBox c1 = new CheckBox()
-                        {
-                            Text = "Is Active",
-                            Name = "c" + name,
-                            Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = inputFieldPanel.Width * 70 / 100,
-                            CheckAlign = ContentAlignment.MiddleLeft,
-                            Checked = loggedUser.IsActivated
-                        };
-                        inputFieldPanel.Controls.Add(c1, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            c1.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            c1.Enabled = false;
-                            c1.Checked = loggedUser.IsActivated;
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Guard Card":
-                        CheckBox c2 = new CheckBox()
-                        {
-                            Text = "Has Guard Card",
-                            Name = "c" + name,
-                            Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = inputFieldPanel.Width * 70 / 100,
-                            CheckAlign = ContentAlignment.MiddleLeft,
-                            Checked = loggedUser.HasGuardCard
-                        };
-                        inputFieldPanel.Controls.Add(c2, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            c2.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            c2.Enabled = false;
-                            c2.Checked = loggedUser.HasGuardCard;
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Address":
-                        Address ua = userData.Address;
-                        Label labelAddress = new Label()
-                        {
-                            Text = $"{ua.Street}, {ua.City}, {ua.State}   ZIP:   {ua.PostalCode}   Number: {ua.Number}",
-                            Font = new Font(Style.FONT_BAHNSCHRTFT, 10),
-                            ForeColor = Style.GRAY,
-                            Width = inputFieldPanel.Width * 70 / 100
-                        };
-                        inputFieldPanel.Controls.Add(labelAddress, 0, 1);
-                        addresEditForm.externLabel = labelAddress;
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            addresEditForm.Show();
-                        });
-                        break;
-                    case "Birthday":
-                        DateTimePicker dt1 = new DateTimePicker()
-                        {
-                            Name = "dt" + name,
-                            Value = loggedUser.Birthday,
-                            Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = inputFieldPanel.Width,
-                            Enabled = false,
-                        };
-                        inputFieldPanel.Controls.Add(dt1, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            dt1.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            dt1.Enabled = false;
-                            dt1.Value = loggedUser.Birthday;
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Hire Date":
-                        DateTimePicker dt2 = new DateTimePicker()
-                        {
-                            Name = "dt" + name,
-                            Value = loggedUser.HireDate,
-                            Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Width = inputFieldPanel.Width,
-                            Enabled = false
-                        };
-                        inputFieldPanel.Controls.Add(dt2, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            dt2.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            dt2.Enabled = false;
-                            dt2.Value = loggedUser.HireDate;
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "User Type":
-                        ComboBox cb = new ComboBox()
-                        {
-                            Name = "cb" + name,
-                            Width = inputFieldPanel.Width * 50 / 100,
-                            Font = new Font(Style.FONT_BAHNSCHRTFT, 14),
-                            Enabled = false,
-                        };
-                        cb.Items.Add(UserType.ADMIN.ToString());
-                        cb.Items.Add(UserType.SUPERIVSOR.ToString());
-                        cb.Items.Add(UserType.WORKER.ToString());
-                        cb.SelectedIndex = ((int)loggedUser.UserType);
-                        inputFieldPanel.Controls.Add(cb, 0, 1);
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            cb.Enabled = true;
-                            editButton.Hide();
-                            cancelButton.Show();
-                        });
-                        cancelButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            cb.Enabled = false;
-                            cb.SelectedIndex = ((int)loggedUser.UserType);
-                            editButton.Show();
-                            cancelButton.Hide();
-                        });
-                        break;
-                    case "Emergency Contacts":
-                        editButton.Click += new EventHandler((object sender, EventArgs e) =>
-                        {
-                            emergencyContactEditForm.Show();
-                        });
-                        break;
+                    foreach (var control in t.Controls)
+                    {
+                        if (control is TextBox textBox)
+                            UpdateUserField(textBox.Name, textBox.Text);
+                        else if (control is CheckBox checkBox)
+                            UpdateUserField(checkBox.Name, checkBox.Checked.ToString());
+                        else if (control is DateTimePicker datePicker)
+                            UpdateUserField(datePicker.Name, datePicker.Value.ToString("yyyy-MM-dd"));
+                    }
                 }
-                fieldsPanel.Controls.Add(inputFieldPanel);
+            }
+            userData.Address = modifiedAddress;
+            userData.ProfileImage = modifiedImage;
+        }
+
+        private string GetUserDataValue(string name)
+        {
+            if (name == "Email")
+            {
+                return userData.Email;
+            }
+            else if (name == "Name")
+            {
+                return userData.Name;
+            }
+            else if (name == "Phone")
+            {
+                return userData.Phone;
+            }
+            else if (name == "Password")
+            {
+                return userData.Password;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        private bool GetUserBooleanValue(string name)
+        {
+            if (name == "Active")
+            {
+                return userData.IsActivated;
+            }
+            else if (name == "Guard Card")
+            {
+                return userData.HasGuardCard;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private DateTime GetUserDateValue(string name)
+        {
+            if (name == "Birthday")
+            {
+                return userData.Birthday;
+            }
+            else if (name == "Hire Date")
+            {
+                return userData.HireDate;
+            }
+            else
+            {
+                return DateTime.Now;
+            }
+        }
+
+        private void UpdateUserField(string name, string value)
+        {
+            switch (name)
+            {
+                case "Name": userData.Name = value; break;
+                case "Email": userData.Email = value; break;
+                case "Phone": userData.Phone = value; break;
+                case "Password": userData.Password = value; break;
+                case "Active": userData.IsActivated = bool.Parse(value); break;
+                case "Guard Card": userData.HasGuardCard = bool.Parse(value); break;
+                case "Birthday": userData.Birthday = DateTime.Parse(value); break;
+                case "Hire Date": userData.HireDate = DateTime.Parse(value); break;
             }
         }
 
         private void InitProfileImage()
         {
+            PictureBox picbox = new PictureBox()
+            {
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Width = this.Height * 30 / 100,
+                Height = this.Height * 30 / 100,
+                Image = userData.ProfileImage,
+                Anchor = AnchorStyles.None,
+            };
+            imagePanel.Controls.Add(picbox);
 
+            Button addImg = new Button()
+            {
+                AutoSize = true,
+                Text = "SET IMAGE",
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 22, FontStyle.Bold),
+                ForeColor = Style.GRAY,
+                Anchor = AnchorStyles.None,
+            };
+            addImg.Click += (sender, e) =>
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "Image Files (*.png)|*.png";
+                    openFileDialog.Title = "Select image";
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            modifiedImage = Image.FromFile(openFileDialog.FileName);
+                            picbox.Image = modifiedImage;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"ERROR loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            };
+            imagePanel.Controls.Add(addImg);
         }
     }
+
 }

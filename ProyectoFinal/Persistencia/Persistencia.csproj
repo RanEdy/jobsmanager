@@ -45,6 +45,7 @@
     <Compile Include="EmergencyContact.cs" />
     <Compile Include="EmergencyContactSQL.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="JobSQL.cs" />
     <Compile Include="Relation.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="RequestSQL.cs" />

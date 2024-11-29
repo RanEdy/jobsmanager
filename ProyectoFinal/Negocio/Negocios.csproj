@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmergencyContactController.cs" />
+    <Compile Include="JobController.cs" />
     <Compile Include="LoginController.cs" />
+    <Compile Include="RequestController.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>

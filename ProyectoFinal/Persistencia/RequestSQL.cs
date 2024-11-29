@@ -109,5 +109,18 @@ namespace Persistencia
             connection.CloseConnection();
         }
 
+        public void DeleteRequestByRelation(int idUser, int idJob)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "EliminarSolicitudPorRelacion";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_idUsuario", idUser);
+            command.Parameters.AddWithValue("@p_idTrabajo", idJob);
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+        }
+
     }
 }

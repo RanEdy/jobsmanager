@@ -14,7 +14,7 @@ namespace Presentacion
     {
         private TableLayoutPanel mainPanel;
         private FlowLayoutPanel optionsPanel;
-        private Button accept, edit, cancel;
+        private Button accept, edit, cancel, delete;
         private EmergencyContact contactData;
         private TextBox nameTextBox, phoneTextBox;
         private ComboBox relationCombo;
@@ -99,7 +99,8 @@ namespace Presentacion
                 relationCombo.Enabled = false;
                 cancel.Visible = false;
                 accept.Visible = false;
-                edit.Enabled = true;
+                edit.Visible = true;
+                delete.Visible = true;
             });
             cancel = new Button()
             {
@@ -125,7 +126,8 @@ namespace Presentacion
 
                 cancel.Visible = false;
                 accept.Visible = false;
-                edit.Enabled = true;
+                edit.Visible = true;
+                delete.Visible = true;
             });
 
             edit = new Button()
@@ -145,10 +147,28 @@ namespace Presentacion
 
                 cancel.Visible = true;
                 accept.Visible = true;
-                edit.Enabled = false;
+                edit.Visible = false;
+                delete.Visible = false;
+            });
+            delete = new Button()
+            {
+                AutoSize = true,
+                Text = "DELETE",
+                BackColor = Style.RED,
+                ForeColor = Style.WHITE,
+                Font = new Font(Style.FONT_BAHNSCHRTFT, 20, FontStyle.Bold),
+                Anchor = AnchorStyles.None
+            };
+            delete.Click += new EventHandler((object sender, EventArgs e) =>
+            {
+                controller.DeleteEmergencyContact(contactData.Id, idUser);
+                this.Visible = false;
+                MessageBox.Show("Successfully deleted");
             });
 
+            
             optionsPanel.Controls.Add(edit);
+            optionsPanel.Controls.Add(delete);
             optionsPanel.Controls.Add(accept);
             optionsPanel.Controls.Add(cancel);
         }

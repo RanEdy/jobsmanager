@@ -93,6 +93,9 @@
     <Compile Include="UIJobListPage.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UIJobRequestBlock.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UIProfilePage.cs">
       <SubType>Component</SubType>
     </Compile>

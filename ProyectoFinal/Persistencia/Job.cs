@@ -14,7 +14,6 @@ namespace Persistencia
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
         public int MaxUsers { get; set; }
-        public List<User> RegisteredUsers { get; set; }
-        public List<Request> Requests { get; set; }
+        public Address Address { get; set; }
     }
 }

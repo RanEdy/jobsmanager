@@ -1,4 +1,4 @@
-﻿using Negocios;
+﻿using Negocio;
 using Persistencia;
 
 using System;
@@ -163,7 +163,7 @@ namespace Presentacion
             {
                 {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser())},
                 {"Request", new UIRequestPage(contentDisplayPanel.Size)},
-                {"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
+                //{"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
                 {"Job List", new UIJobListPage(contentDisplayPanel.Size)}
             };
 
@@ -172,8 +172,8 @@ namespace Presentacion
             {
                 {optionsDictionary.Keys.ElementAt(0),  Properties.Resources.UserIcon},
                 {optionsDictionary.Keys.ElementAt(1),  Properties.Resources.RequestIcon},
-                {optionsDictionary.Keys.ElementAt(2),  Properties.Resources.ScheduleIcon},
-                {optionsDictionary.Keys.ElementAt(3),  Properties.Resources.JobListIcon}
+                //{optionsDictionary.Keys.ElementAt(2),  Properties.Resources.ScheduleIcon},
+                {optionsDictionary.Keys.ElementAt(2),  Properties.Resources.JobListIcon}
             };
 
             //Inicializar propiedades en comun que tendran todos los botones de las opciones

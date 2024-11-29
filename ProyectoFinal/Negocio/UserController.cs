@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Persistencia;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Persistencia;
 using System.Data;
 using System.Drawing;
 using System.IO;
 
-namespace Negocios
+namespace Negocio
 {
     public class UserController
     {
