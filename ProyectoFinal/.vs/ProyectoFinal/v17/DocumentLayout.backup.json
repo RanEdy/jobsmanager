@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uijobrequestblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\uijobrequestblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uijobrequestblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\negocio\\requestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53BE330B-88FB-4BD4-A6A1-B3F487528F12}|Negocio\\Negocios.csproj|solutionrelative:negocio\\requestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\persistencia\\requestsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\requestsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uirequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uirequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uiadminjobspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiadminjobspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,27 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RequestController.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\RequestController.cs",
-              "RelativeDocumentMoniker": "Negocio\\RequestController.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Negocio\\RequestController.cs",
-              "RelativeToolTip": "Negocio\\RequestController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UIAdminJobsPage.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIAdminJobsPage.cs",
+              "RelativeDocumentMoniker": "Presentacion\\UIAdminJobsPage.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIAdminJobsPage.cs",
+              "RelativeToolTip": "Presentacion\\UIAdminJobsPage.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T16:50:38.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RequestSQL.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\RequestSQL.cs",
-              "RelativeDocumentMoniker": "Persistencia\\RequestSQL.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\RequestSQL.cs",
-              "RelativeToolTip": "Persistencia\\RequestSQL.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T16:50:22.891Z",
+              "WhenOpened": "2024-11-29T20:10:09.702Z",
               "EditorCaption": ""
             },
             {
@@ -74,22 +53,9 @@
               "RelativeDocumentMoniker": "Presentacion\\UIJobRequestBlock.cs",
               "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIJobRequestBlock.cs",
               "RelativeToolTip": "Presentacion\\UIJobRequestBlock.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAAAJ8AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAwwFgAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-29T14:59:57.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UIRequestPage.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIRequestPage.cs",
-              "RelativeDocumentMoniker": "Presentacion\\UIRequestPage.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIRequestPage.cs",
-              "RelativeToolTip": "Presentacion\\UIRequestPage.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowDMAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T14:37:40.964Z",
               "EditorCaption": ""
             }
           ]

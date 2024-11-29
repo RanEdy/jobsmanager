@@ -29,12 +29,12 @@ namespace Negocio
 
         public void InsertRequest(Request r)
         {
-
+            sql.InsertRequest(r);
         }
 
         public void EditRequest(Request r)
         {
-
+            sql.EditRequest(r);
         }
 
         public void DeleteRequest(int id)

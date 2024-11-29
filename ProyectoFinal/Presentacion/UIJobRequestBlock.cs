@@ -15,10 +15,12 @@ namespace Presentacion
         private Job jobData;
         private bool adminMode = UserController.IsLoggedUserAdmin();
         private JobController controller = new JobController();
+        private RequestController requestController = new RequestController();
 
         private TableLayoutPanel datePanel, descriptionPanel;
         private Label maxUsersLabel;
-        private Label otherUsers, request, delete, edit;
+        private Label otherUsers;
+        private Button request, delete, edit;
         public UIJobRequestBlock(Size size, Job jobData)
         {
             this.jobData = jobData;
@@ -54,7 +56,7 @@ namespace Presentacion
                 ColumnCount = 1,
                 RowCount = 2,
                 Height = this.Height,
-                Width = this.Width * 25 / 100,
+                Width = this.Width * 20 / 100,
                 BackColor = Style.LIGHT_GRAY
             };
             datePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0F));
@@ -84,7 +86,7 @@ namespace Presentacion
                 ColumnCount = 1,
                 RowCount = 2,
                 Height = this.Height,
-                Width = this.Width * 35 / 100
+                Width = this.Width * 40 / 100
             };
             descriptionPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0F));
             descriptionPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0F));
@@ -119,37 +121,40 @@ namespace Presentacion
 
             if (!adminMode)
             {
-                request = new Label()
+                request = new Button()
                 {
                     Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
                     BackColor = Style.LIGHT_GREEN,
                     Anchor = AnchorStyles.None,
-                    BorderStyle = BorderStyle.FixedSingle,
-                    Padding = new Padding(25, 0 ,0 ,0)
+                    ImageAlign = ContentAlignment.MiddleCenter,
+                    Margin = new Padding(this.Width * 15 / 100, 0 ,0 ,0)
                 };
-                request.Image = new Bitmap(Properties.Resources.CheckRequestIcon, new Size(request.Height, request.Height));
+                request.Image = new Bitmap(Properties.Resources.CheckRequestIcon, new Size(request.Height * 60 /100, request.Height * 60 / 100));
+                request.Click += request_click;
                 this.Controls.Add(request);
             }
             else
             {
-                delete = new Label()
+                delete = new Button()
                 {
                     Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
                     BackColor = Style.LIGHT_RED,
                     Anchor = AnchorStyles.None,
-                    BorderStyle = BorderStyle.FixedSingle,
+                    ImageAlign = ContentAlignment.MiddleCenter,
                 };
                 delete.Image = new Bitmap(Properties.Resources.RemoveIcon, new Size(delete.Height, delete.Height));
+                delete.Click += delete_click;
                 this.Controls.Add(delete);
 
-                edit = new Label()
+                edit = new Button()
                 {
                     Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
                     BackColor = Style.LIGHT_RED,
                     Anchor = AnchorStyles.None,
-                    BorderStyle = BorderStyle.FixedSingle,
+                    ImageAlign = ContentAlignment.MiddleCenter,
                 };
                 edit.Image = new Bitmap(Properties.Resources.ConfigIcon, new Size(edit.Height, edit.Height));
+                edit.Click += edit_click;
                 this.Controls.Add(edit);
             }
             
@@ -158,7 +163,24 @@ namespace Presentacion
         private void request_click(object sender, EventArgs e)
         {
             int userId = UserController.GetLoggedUser().Id;
-            //RequestController para agregar una solicitud
+            Request r = new Request()
+            { 
+                UserId = userId,
+                JobId = jobData.Id,
+                State = RequestState.PENDING
+            };
+            requestController.InsertRequest(r);
+            this.Visible = false;
+        }
+
+        private void edit_click(object sender, EventArgs e)
+        {
+            //Aqui se debe abrir una nueva ventana para editar el trabajo
+        }
+
+        private void delete_click(object sender, EventArgs e)
+        {
+            controller.DeleteJob(jobData.Id);
             this.Visible = false;
         }
     }

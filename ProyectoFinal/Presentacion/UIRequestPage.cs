@@ -32,7 +32,7 @@ namespace Presentacion
             Label label = new Label()
             {
                 Dock = DockStyle.Top,
-                Text = "JOB LIST",
+                Text = "AVAILABLE JOBS",
                 ForeColor = Style.BLUE,
                 Font = new Font(Style.FONT_BAHNSCHRTFT, 28, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
