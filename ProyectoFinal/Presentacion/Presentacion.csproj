@@ -49,29 +49,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressEditForm.cs">
+    <Compile Include="UIAddressEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddressEditForm.Designer.cs">
-      <DependentUpon>AddressEditForm.cs</DependentUpon>
+    <Compile Include="UIAddressEditForm.Designer.cs">
+      <DependentUpon>UIAddressEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmergencyContactBlock.cs">
+    <Compile Include="UIEmergencyContactBlock.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="EmergencyContactEditForm.cs">
+    <Compile Include="UIEmergencyContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="UIJobEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="UILoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="UILoginForm.Designer.cs">
+      <DependentUpon>UILoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIMainForm.Designer.cs">
+      <DependentUpon>UIMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,7 +96,7 @@
     <Compile Include="UIJobListPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UIJobRequestBlock.cs">
+    <Compile Include="UIJobBlock.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UIProfilePage.cs">
@@ -105,17 +108,17 @@
     <Compile Include="UISchedulePage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="AddressEditForm.resx">
-      <DependentUpon>AddressEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="UIAddressEditForm.resx">
+      <DependentUpon>UIAddressEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmergencyContactEditForm.resx">
-      <DependentUpon>EmergencyContactEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="UIEmergencyContactEditForm.resx">
+      <DependentUpon>UIEmergencyContactEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="UILoginForm.resx">
+      <DependentUpon>UILoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="UIMainForm.resx">
+      <DependentUpon>UIMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

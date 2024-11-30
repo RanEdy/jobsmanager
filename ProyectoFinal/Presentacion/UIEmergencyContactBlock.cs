@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public class EmergencyContactBlock : Panel
+    public class UIEmergencyContactBlock : Panel
     {
         private TableLayoutPanel mainPanel;
         private FlowLayoutPanel optionsPanel;
@@ -23,7 +23,7 @@ namespace Presentacion
         private string[] fieldNames = { "Name", "Phone", "Relation" };
         private EmergencyContactController controller = new EmergencyContactController();
 
-        public EmergencyContactBlock(EmergencyContact emergencyContact, int idUser, Size size)
+        public UIEmergencyContactBlock(EmergencyContact emergencyContact, int idUser, Size size)
         {
             this.BackColor = Style.WHITE;
             this.BorderStyle = BorderStyle.FixedSingle;

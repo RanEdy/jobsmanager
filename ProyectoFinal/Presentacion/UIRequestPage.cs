@@ -14,6 +14,7 @@ namespace Presentacion
     {
         private FlowLayoutPanel jobBlocksPanel;
         private JobController controller = new JobController();
+        private RequestController requestController = new RequestController();
         private Size blockSize;
  
         public UIRequestPage(Size size)
@@ -45,9 +46,9 @@ namespace Presentacion
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 BackColor = Style.LIGHT_GRAY,
-                Width = this.Width,
+                Width = this.Width * 95 / 100,
                 Height = this.Height * 80 /100,
-                Padding = new Padding(0, this.Height * 15 / 100, 0, 0)
+                Padding = new Padding(0, this.Height * 10 / 100, 0, 0)
             };
             blockSize = new Size(jobBlocksPanel.Width * 95 / 100, jobBlocksPanel.Height * 15 / 100);
             this.Controls.Add(jobBlocksPanel);
@@ -57,25 +58,27 @@ namespace Presentacion
         {
             User loggedUser = UserController.GetLoggedUser();
             List<Job> jobs = controller.QueryJobs();
-            List<Job> userJobs = controller.QueryJobsByUser(loggedUser.Id);
-            List<Job> addedJobs = new List<Job>();
+
+            JobController jc = new JobController();
+            List<Job> userJobs = jc.QueryJobsByUser(loggedUser.Id);
+            List<Request> userRequests = requestController.QueryRequestsByUser(loggedUser.Id);
+
+            List<UIJobBlock> blocks = new List<UIJobBlock>();
             if (jobs == null) return;
             foreach (Job job in jobs)
             {
-                if (userJobs == null)
-                {
-                    jobBlocksPanel.Controls.Add(new UIJobRequestBlock(blockSize, job));
-                    continue;
-                }
-                foreach (Job userJob in userJobs)
-                {
-                    if(job.Id != userJob.Id && !addedJobs.Contains(job))
-                    {
-                        jobBlocksPanel.Controls.Add(new UIJobRequestBlock(blockSize, job));
-                        addedJobs.Add(job);
-                    }
-                }
+                UIJobBlock jb = new UIJobBlock(blockSize, job);
+                blocks.Add(jb);
+
+                if (userJobs == null) continue;
+                if (userRequests == null) continue;
+
+                foreach (Job userJob in userJobs) if(job.Id == userJob.Id) blocks.Remove(jb);
+
+                foreach (Request r in userRequests) if(r.JobId == job.Id) blocks.Remove(jb);
             }
+
+            foreach (UIJobBlock jb in blocks) jobBlocksPanel.Controls.Add(jb);
         }
     }
 }

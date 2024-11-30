@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class LoginForm
+    partial class UILoginForm
     {
         /// <summary>
         /// Required designer variable.

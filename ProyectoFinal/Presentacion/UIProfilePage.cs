@@ -15,8 +15,8 @@ namespace Presentacion
     {
         public bool AdminMode { get; set; }
 
-        private AddressEditForm addressEditForm;
-        private EmergencyContactEditForm emergencyContactEditForm;
+        private UIAddressEditForm addressEditForm;
+        private UIEmergencyContactEditForm emergencyContactEditForm;
         private TableLayoutPanel tablePanel;
         private FlowLayoutPanel fieldsPanel;
         private FlowLayoutPanel savePanel;
@@ -33,8 +33,8 @@ namespace Presentacion
             userData = user;
             modifiedImage = user.ProfileImage;
             modifiedAddress = user.Address;
-            addressEditForm = new AddressEditForm(userData, modifiedAddress);
-            emergencyContactEditForm = new EmergencyContactEditForm(userData.Id);
+            addressEditForm = new UIAddressEditForm(userData, modifiedAddress);
+            emergencyContactEditForm = new UIEmergencyContactEditForm(userData.Id);
             userController = new UserController();
 
             InitializeUI(size);

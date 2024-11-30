@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class AddressEditForm
+    partial class UIAddressEditForm
     {
         /// <summary>
         /// Required designer variable.

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class MainForm : Form
+    public partial class UIMainForm : Form
     {
         private Size maxSize = new Size(1920, 1080);
         private int widthPercentage = 70;
@@ -33,7 +33,7 @@ namespace Presentacion
         private Dictionary<string, Image> optionsImagesDictionary;
 
 
-        public MainForm()
+        public UIMainForm()
         {
             InitializeComponent();
             InitFormSize();
@@ -70,6 +70,7 @@ namespace Presentacion
             this.Width = (this.Width * widthPercentage) / 100;
             this.Height = (this.Height * heightPercentage) / 100;
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
         private void InitGeneralPanels()
         {

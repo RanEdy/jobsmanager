@@ -11,7 +11,7 @@ using Persistencia;
 
 namespace Presentacion
 {
-    public partial class AddressEditForm : Form
+    public partial class UIAddressEditForm : Form
     {
         
         private User userData;
@@ -25,7 +25,7 @@ namespace Presentacion
         private Button acceptButton, cancelButton, resetButton;
         private readonly string[] addressFieldNames = { "Street", "City", "State", "Postal Code", "Number" };
         private List<TextBox> inputFields = new List<TextBox>();
-        public AddressEditForm(User user, Address modifiedAddress)
+        public UIAddressEditForm(User user, Address modifiedAddress)
         {
             this.modifiedAddress = modifiedAddress;
             userData = user;

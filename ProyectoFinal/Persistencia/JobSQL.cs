@@ -106,7 +106,8 @@ namespace Persistencia
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@p_nombreTrabajo", j.DisplayName);
             command.Parameters.AddWithValue("@p_nombreLugar", j.SiteName);
-            command.Parameters.AddWithValue("@p_fecha", j.StartDate.ToString("yyyy-MM-dd HH:mm:ss"));
+            command.Parameters.AddWithValue("@p_maxUsuarios", j.MaxUsers);
+            command.Parameters.AddWithValue("@p_fecha", j.StartDate);
             command.Parameters.AddWithValue("@p_duracion", j.Duration);
             command.Parameters.AddWithValue("@p_calle", j.Address.Street);
             command.Parameters.AddWithValue("@p_ciudad", j.Address.City);
@@ -124,9 +125,11 @@ namespace Persistencia
             command.Connection = connection.OpenConnection();
             command.CommandText = "EditarTrabajo";
             command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_id", j.Id);
             command.Parameters.AddWithValue("@p_nombreTrabajo", j.DisplayName);
             command.Parameters.AddWithValue("@p_nombreLugar", j.SiteName);
-            command.Parameters.AddWithValue("@p_fecha", j.StartDate.ToString("yyyy-MM-dd HH:mm:ss"));
+            command.Parameters.AddWithValue("@p_maxUsuarios", j.MaxUsers);
+            command.Parameters.AddWithValue("@p_fecha", j.StartDate);
             command.Parameters.AddWithValue("@p_duracion", j.Duration);
             command.Parameters.AddWithValue("@p_calle", j.Address.Street);
             command.Parameters.AddWithValue("@p_ciudad", j.Address.City);

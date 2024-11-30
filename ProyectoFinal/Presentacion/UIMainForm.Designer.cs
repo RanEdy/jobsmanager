@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class MainForm
+    partial class UIMainForm
     {
         /// <summary>
         /// Required designer variable.

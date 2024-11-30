@@ -96,5 +96,10 @@ namespace Negocio
         {
             jobSQL.DeleteUserFromJob(idJob, idUser);
         }
+
+        public Job GetLastJob()
+        {
+            return QueryJobs().Last();
+        }
     }
 }

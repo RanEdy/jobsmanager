@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace Presentacion
 {
-    public class EmergencyContactEditForm : Form
+    public class UIEmergencyContactEditForm : Form
     {
 
         private Size maxSize = new Size(1300, 800);
@@ -28,10 +28,10 @@ namespace Presentacion
 
         private string[] fieldNames = { "Name", "Phone", "Relation" };
         private List<EmergencyContact> userContacts;
-        private List<EmergencyContactBlock> emergencyContactBlocks = new List<EmergencyContactBlock>();
+        private List<UIEmergencyContactBlock> emergencyContactBlocks = new List<UIEmergencyContactBlock>();
         private int idUser;
 
-        public EmergencyContactEditForm(int idUser)
+        public UIEmergencyContactEditForm(int idUser)
         {
             this.idUser = idUser;
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace Presentacion
             blockSize = new Size(contactsPanel.Width * 92 / 100, contactsPanel.Height * 50 /100);
             foreach (var contact in userContacts)
             {
-                EmergencyContactBlock block = new EmergencyContactBlock(contact, contact.IdUser, blockSize);
+                UIEmergencyContactBlock block = new UIEmergencyContactBlock(contact, contact.IdUser, blockSize);
                 emergencyContactBlocks.Add(block);
                 contactsPanel.Controls.Add(block);
             }
@@ -198,7 +198,7 @@ namespace Presentacion
 
                     controller.InsertEmergencyContact(em, idUser);
 
-                    EmergencyContactBlock eBlock = new EmergencyContactBlock(em, idUser, blockSize);
+                    UIEmergencyContactBlock eBlock = new UIEmergencyContactBlock(em, idUser, blockSize);
                     emergencyContactBlocks.Add(eBlock);
                     contactsPanel.Controls.Add(eBlock);
 
