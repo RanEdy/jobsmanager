@@ -33,6 +33,26 @@ namespace Persistencia
             connection.CloseConnection();
             return table;
         }
+
+        public DataTable GetJobSummary(int id)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ResumenTrabajo";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_IDTrabajo", id);
+
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+            return table;
+        }
+
         public DataTable QueryJobs()
         {
             command.Connection = connection.OpenConnection();

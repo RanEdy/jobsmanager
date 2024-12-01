@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uiadminreportspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiadminreportspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\persistencia\\jobsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\jobsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uijobeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uijobeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\persistencia\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,41 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Job.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\Job.cs",
-              "RelativeDocumentMoniker": "Persistencia\\Job.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\Job.cs",
-              "RelativeToolTip": "Persistencia\\Job.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:31:29.467Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UIJobEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIJobEditForm.cs",
-              "RelativeDocumentMoniker": "Presentacion\\UIJobEditForm.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIJobEditForm.cs",
-              "RelativeToolTip": "Presentacion\\UIJobEditForm.cs",
-              "ViewState": "AgIAANMAAAAAAAAAAAAwwPMAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:21:43.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "JobSQL.cs",
               "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\JobSQL.cs",
               "RelativeDocumentMoniker": "Persistencia\\JobSQL.cs",
               "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\JobSQL.cs",
               "RelativeToolTip": "Persistencia\\JobSQL.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAIwG0AAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAWwCcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:18:50.554Z",
+              "WhenOpened": "2024-12-01T06:55:17.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UIAdminReportsPage.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIAdminReportsPage.cs",
+              "RelativeDocumentMoniker": "Presentacion\\UIAdminReportsPage.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIAdminReportsPage.cs",
+              "RelativeToolTip": "Presentacion\\UIAdminReportsPage.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAYwFsAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T06:04:19.981Z",
               "EditorCaption": ""
             }
           ]

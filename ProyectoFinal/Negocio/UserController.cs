@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 
 namespace Negocio
 {
@@ -35,6 +36,11 @@ namespace Negocio
             return LoggedUser.UserType == UserType.ADMIN;
         }
 
+        public bool VerifyEmail(string email)
+        {
+            return userSql.VerifyEmail(email).Rows.Count == 0;
+        }
+
         public User GetUserLogin(string email, string password)
         {
             return ConstructFromDataTable(userSql.GetUserLogin(email, password));
@@ -45,11 +51,40 @@ namespace Negocio
             return ConstructFromDataTable(userSql.GetUser(id));
         }
 
+        public DataTable GetUserSummary(int id)
+        {
+            return userSql.GetUserSummary(id);
+        }
+
+        public User GetLastUser()
+        {
+            return QueryUsers().Last();
+        }
+
         public void EditUser(User user)
         {
             userSql.EditUser(user);
         }
         
+        public List<User> QueryUsers()
+        {
+            return ConstructListFromDataTable(userSql.QueryUsers());
+        }
+
+        public List<User> QueryUsersByJob(int id)
+        {
+            return ConstructListFromDataTable(userSql.QueryUsersByJob(id));
+        }
+        public void InsertUser(User user)
+        {
+            userSql.InsertUser(user);
+        }
+
+        public void DeleteUser(int id)
+        {
+            userSql.DeleteUser(id);
+        }
+
         private User ConstructFromDataTable(DataTable dt)
         {
             if (dt.Rows.Count == 0) return null;
@@ -79,8 +114,10 @@ namespace Negocio
                 UserType = (UserType)Enum.Parse(typeof(UserType), row["TipoUsuario"].ToString()),
                 IsActivated = (bool)row["Activo"],
                 HasGuardCard = (bool)row["TarjetaSeguridadActiva"],
-                ProfileImage = BytesToImage((byte[])row["ImagenPerfil"])
+                
             };
+            if (row["ImagenPerfil"] == DBNull.Value) user.ProfileImage = null;
+            else user.ProfileImage = BytesToImage((byte[])row["ImagenPerfil"]);
             return user;
         }
 

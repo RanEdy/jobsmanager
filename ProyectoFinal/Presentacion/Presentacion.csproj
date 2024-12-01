@@ -55,6 +55,9 @@
     <Compile Include="UIAddressEditForm.Designer.cs">
       <DependentUpon>UIAddressEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIAdminRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UIEmergencyContactBlock.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -107,6 +110,12 @@
     </Compile>
     <Compile Include="UISchedulePage.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIUserBlock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIUserEditForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="UIAddressEditForm.resx">
       <DependentUpon>UIAddressEditForm.cs</DependentUpon>

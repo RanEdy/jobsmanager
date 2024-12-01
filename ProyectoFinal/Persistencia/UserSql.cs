@@ -71,6 +71,25 @@ namespace Persistencia
             return table;
         }
 
+        public DataTable GetUserSummary(int id)
+        {
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "ResumenUsuario";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@p_IDUsuario", id);
+
+
+            using (var reader = command.ExecuteReader())
+            {
+                table.Load(reader);
+            }
+
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
+            connection.CloseConnection();
+            return table;
+        }
+
         public DataTable QueryUsersNoPassword()
         {
             command.Connection = connection.OpenConnection();
@@ -122,7 +141,7 @@ namespace Persistencia
         public DataTable VerifyEmail(string email)
         {
             command.Connection = connection.OpenConnection();
-            command.CommandText = "ConsultarUsuariosPorTrabajo";
+            command.CommandText = "VerificarCorreo";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@p_correo", email);
 

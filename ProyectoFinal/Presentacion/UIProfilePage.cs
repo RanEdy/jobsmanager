@@ -13,7 +13,7 @@ namespace Presentacion
 {
     public class UIProfilePage : Panel
     {
-        public bool AdminMode { get; set; }
+        public UIAdminUsersPage usersPage;
 
         private UIAddressEditForm addressEditForm;
         private UIEmergencyContactEditForm emergencyContactEditForm;
@@ -21,15 +21,20 @@ namespace Presentacion
         private FlowLayoutPanel fieldsPanel;
         private FlowLayoutPanel savePanel;
         private TableLayoutPanel imagePanel;
-        private Button saveButton;
+        public Button saveButton;
+        private TextBox emailTextBox;
 
-        private User userData;
+        public User userData;
         private Address modifiedAddress;
         private Image modifiedImage;
         private UserController userController;
+        public bool insertMode;
 
-        public UIProfilePage(Size size, User user)
+        //Modo Edicion (predeterminado)
+        //Modo Insercion
+        public UIProfilePage(Size size, User user, bool insertMode=false)
         {
+            this.insertMode = insertMode;
             userData = user;
             modifiedImage = user.ProfileImage;
             modifiedAddress = user.Address;
@@ -94,7 +99,7 @@ namespace Presentacion
             saveButton = new Button
             {
                 AutoSize = true,
-                Text = "SAVE",
+                Text = insertMode ? "ACCEPT" : "SAVE",
                 BackColor = Style.LIGHT_GREEN,
                 ForeColor = Style.WHITE,
                 Font = new Font(Style.FONT_BAHNSCHRTFT, 24, FontStyle.Bold),
@@ -103,10 +108,28 @@ namespace Presentacion
 
             saveButton.Click += (sender, e) =>
             {
+                
                 if (VerifyFields())
                 {
+                    if (!userController.VerifyEmail(emailTextBox.Text) && insertMode)
+                    {
+                        MessageBox.Show("UNABLE TO SAVE DATA [EMAIL ALREADY REGISTERED]");
+                        return;
+                    }
+
                     UpdateUserData();
-                    userController.EditUser(userData);
+
+                    if (!insertMode) userController.EditUser(userData);
+                    else
+                    {
+                        //Crear un nuevo bloque y actualizar la lista
+                        userController.InsertUser(userData);
+                        UserController uc = new UserController();
+                        userData = uc.GetLastUser();
+                        UIUserBlock ub = new UIUserBlock(userData, usersPage.blockSize);
+                        ub.uIAdminUsersPage = usersPage;
+                        usersPage.userBlocksPanel.Controls.Add(ub);
+                    }
                     MessageBox.Show("Data saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -134,7 +157,7 @@ namespace Presentacion
                 {
                     AddAddressField();
                 }
-                else if (name == "Emergency Contacts")
+                else if (name == "Emergency Contacts" && !insertMode)
                 {
                     AddEmergencyContactsField();
                 }
@@ -182,7 +205,7 @@ namespace Presentacion
             var label = new Label
             {
                 AutoSize = true,
-                Text = name,
+                Text = (name=="Id" || name == "Age" || name=="Seniority" || name == "Emergency Contacts") && insertMode ? "" : name,
                 Dock = DockStyle.Fill,
                 Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold),
             };
@@ -245,7 +268,7 @@ namespace Presentacion
 
             var label = new Label
             {
-                Text = "Emergency Contacts",
+                Text = insertMode ? "" : "Emergency Contacts",
                 AutoSize = true,
                 Dock = DockStyle.Fill,
                 Font = new Font(Style.FONT_BAHNSCHRTFT, 16, FontStyle.Bold)
@@ -269,13 +292,16 @@ namespace Presentacion
         {
             if (name == "Email" || name == "Name" || name == "Phone" || name == "Password")
             {
-                return new TextBox
+                TextBox tb = new TextBox
                 {
                     Name = name,
                     Text = GetUserDataValue(name), 
                     Font = new Font(Style.FONT_BAHNSCHRTFT, 16),
                     Width = this.Width * 40 /100
                 };
+
+                if (name == "Email") emailTextBox = tb;
+                return tb;
             }
             else if (name == "Active" || name == "Guard Card")
             {
@@ -309,7 +335,7 @@ namespace Presentacion
                 };
                 return comboBox;
             }
-            else if (name == "Id")
+            else if (name == "Id" && !insertMode)
             {
                 return new Label 
                 {
@@ -319,7 +345,7 @@ namespace Presentacion
                     Font = new Font(Style.FONT_BAHNSCHRTFT, 16)
                 };
             }
-            else if (name == "Age")
+            else if (name == "Age" && !insertMode)
             {
                 return new Label
                 {
@@ -329,7 +355,7 @@ namespace Presentacion
                     Font = new Font(Style.FONT_BAHNSCHRTFT, 16)
                 };
             }
-            else if (name == "Seniority")
+            else if (name == "Seniority" && !insertMode)
             {
                 return new Label {
 
@@ -347,11 +373,20 @@ namespace Presentacion
 
         private bool VerifyFields()
         {
-            foreach (var control in fieldsPanel.Controls)
+            foreach (Control c in fieldsPanel.Controls)
             {
-                if (control is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
-                    return false;
+                foreach (var control in c.Controls)
+                    if (control is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                        return false;
             }
+            if (modifiedAddress == null) return false;
+            if (string.IsNullOrEmpty(modifiedAddress.State) ||
+                string.IsNullOrEmpty(modifiedAddress.City) ||
+                string.IsNullOrEmpty(modifiedAddress.Street) ||
+                string.IsNullOrEmpty(modifiedAddress.PostalCode) ||
+                string.IsNullOrEmpty(modifiedAddress.Number)
+                ) return false;
+
             return true;
         }
 
@@ -454,9 +489,10 @@ namespace Presentacion
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Width = this.Height * 30 / 100,
                 Height = this.Height * 30 / 100,
-                Image = userData.ProfileImage,
                 Anchor = AnchorStyles.None,
             };
+            if (userData.ProfileImage != null) picbox.Image = userData.ProfileImage;
+            else picbox.Image = new Bitmap(Properties.Resources.UserIcon);
             imagePanel.Controls.Add(picbox);
 
             Button addImg = new Button()

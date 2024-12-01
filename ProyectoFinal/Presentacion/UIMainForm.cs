@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace Presentacion
 {
     public partial class UIMainForm : Form
     {
+        public static Size finalSize { get; set; }
         private Size maxSize = new Size(1920, 1080);
         private int widthPercentage = 70;
         private int heightPercentage = 92;
@@ -48,7 +50,7 @@ namespace Presentacion
 
 
                 case UserType.WORKER:
-                case UserType.SUPERIVSOR:
+                case UserType.SUPERVISOR:
                     InitForWorker();
                     break;
             }
@@ -71,6 +73,7 @@ namespace Presentacion
             this.Height = (this.Height * heightPercentage) / 100;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            finalSize = this.Size;
         }
         private void InitGeneralPanels()
         {
@@ -165,7 +168,7 @@ namespace Presentacion
                 {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser())},
                 {"Request", new UIRequestPage(contentDisplayPanel.Size)},
                 //{"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
-                {"Job List", new UIJobListPage(contentDisplayPanel.Size)}
+                {"Job List", new UIJobListPage(contentDisplayPanel.Size, false)}
             };
 
             //Mapear los nombres de cada opcion con su respectiva imagen

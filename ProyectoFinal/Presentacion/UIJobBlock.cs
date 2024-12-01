@@ -16,6 +16,7 @@ namespace Presentacion
         public Job jobData;
         public int userId;
         public UIAdminJobsPage adminJobsPage;
+        private UIAdminRequestForm adminRequestForm;
         private bool adminMode = UserController.IsLoggedUserAdmin();
         private bool isRequest;
         private JobController controller = new JobController();
@@ -24,7 +25,12 @@ namespace Presentacion
         private TableLayoutPanel datePanel, descriptionPanel;
         private Label maxUsersLabel;
         private Label otherUsers;
-        private Button accept, delete, edit;
+        private Button accept, delete, edit, requests;
+
+        //Esta clase cuenta con 3 modos visuales
+        //Modo Administrador
+        //Modo Empleado
+        //Modo Empleado en Solicitud
         public UIJobBlock(Size size, Job jobData, bool isRequest=false)
         {
             this.isRequest = isRequest;
@@ -127,6 +133,8 @@ namespace Presentacion
             otherUsers.Image = new Bitmap(Properties.Resources.GroupUserIcon, new Size(otherUsers.Height * 90 / 100, otherUsers.Height * 90 / 100));
             if (!isRequest) this.Controls.Add(otherUsers);
 
+            //Si el bloque esta en modo empleado
+            // tendra botones para solicitar el trabajo (accept)
             if (!adminMode)
             {
                 if (!isRequest)
@@ -144,36 +152,33 @@ namespace Presentacion
                     this.Controls.Add(accept);
                 }
             }
+            //Si el bloque esta en modo administrador
+            //Tendra botones para editar, ver soliciutdes y eliminar el trabajo
             else
             {
-                if (!isRequest)
+                //boton para mostrar todas las solicitudes de este trabajo
+                requests = new Button()
                 {
-                    edit = new Button()
-                    {
-                        Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
-                        BackColor = Style.LIGHT_GRAY,
-                        Anchor = AnchorStyles.None,
-                        ImageAlign = ContentAlignment.MiddleCenter,
-                    };
-                    edit.Image = new Bitmap(Properties.Resources.ConfigIcon, new Size(edit.Height, edit.Height));
-                    edit.Click += edit_click;
-                    this.Controls.Add(edit);
-                }
-                //Para que el admin pueda aceptar la solicitud
-                else
+                    Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
+                    BackColor = Style.LIGHT_GRAY,
+                    Anchor = AnchorStyles.None,
+                    ImageAlign = ContentAlignment.MiddleCenter,
+                };
+                requests.Image = new Bitmap(Properties.Resources.RequestIcon, new Size(requests.Height, requests.Height));
+                requests.Click += Requests_Click;
+                this.Controls.Add(requests);
+
+                edit = new Button()
                 {
-                    accept = new Button()
-                    {
-                        Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
-                        BackColor = Style.LIGHT_GREEN,
-                        Anchor = AnchorStyles.None,
-                        ImageAlign = ContentAlignment.MiddleCenter,
-                        Margin = new Padding(this.Width * 10 / 100, 0, 0, 0)
-                    };
-                    accept.Image = new Bitmap(Properties.Resources.CheckRequestIcon, new Size(accept.Height * 60 / 100, accept.Height * 60 / 100));
-                    accept.Click += accept_click;
-                    this.Controls.Add(accept);
-                }
+                    Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
+                    BackColor = Style.LIGHT_GRAY,
+                    Anchor = AnchorStyles.None,
+                    ImageAlign = ContentAlignment.MiddleCenter,
+                };
+                edit.Image = new Bitmap(Properties.Resources.ConfigIcon, new Size(edit.Height, edit.Height));
+                edit.Click += edit_click;
+                this.Controls.Add(edit);
+
                 delete = new Button()
                 {
                     Size = new Size(this.Height * 80 / 100, this.Height * 80 / 100),
@@ -188,22 +193,33 @@ namespace Presentacion
             
         }
 
+        private void Requests_Click(object sender, EventArgs e)
+        {
+            if (adminRequestForm != null) adminRequestForm.Dispose();
+            adminRequestForm = new UIAdminRequestForm(jobData.Id);
+            
+        }
+
+        //Solicitar trabajo
         private void accept_click(object sender, EventArgs e)
         {
-            if (isRequest)
+            int userId = UserController.GetLoggedUser().Id;
+            JobController c = new JobController();
+            List<Job> userJobs = c.QueryJobsByUser(userId);
+            bool conflict = false;
+            foreach (Job j in userJobs)
             {
-                Request r = new Request()
-                {
-                    UserId = userId,
-                    JobId = jobData.Id,
-                    State = RequestState.ACCEPTED
-                };
-                requestController.EditRequest(r);
-                controller.InsertUserIntoJob(jobData.Id, userId);
+                //Si en los trabajos del usuario existe un trabajo con la misma fecha o en la misma hora
+                if (jobData.StartDate == j.StartDate) conflict = true;
+                if (jobData.StartDate.Hour == j.StartDate.Hour) conflict = true;
+                if (jobData.StartDate.AddHours(jobData.Duration) > j.StartDate) conflict = true;
+            }
+            if (conflict)
+            {
+                MessageBox.Show("UNABLE TO REQUEST JOB [DATE CONFLICT WITH OTHER ONE]");
             }
             else
             {
-                int userId = UserController.GetLoggedUser().Id;
                 Request r = new Request()
                 {
                     UserId = userId,
@@ -211,9 +227,9 @@ namespace Presentacion
                     State = RequestState.PENDING
                 };
                 requestController.InsertRequest(r);
+
+                this.Visible = false;
             }
-            
-            this.Visible = false;
         }
 
         private void edit_click(object sender, EventArgs e)
@@ -227,20 +243,8 @@ namespace Presentacion
 
         private void delete_click(object sender, EventArgs e)
         {
-            //Si es tipo solicitud entonces simplemente la rechaza
-            //si es tipo trabajo entonces lo elimina
 
-            if (isRequest)
-            {
-                Request r = new Request()
-                {
-                    UserId = userId,
-                    JobId = jobData.Id,
-                    State = RequestState.REJECTED
-                };
-                requestController.EditRequest(r);
-            }
-            else controller.DeleteJob(jobData.Id);
+            controller.DeleteJob(jobData.Id);
             this.Visible = false;
         }
     }

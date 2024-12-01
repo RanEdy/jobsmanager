@@ -57,6 +57,11 @@ namespace Negocio
             return ConstructFromTable(jobSQL.GetJob(id));
         }
 
+        public DataTable GetJobSummary(int id)
+        {
+            return jobSQL.GetJobSummary(id);
+        }
+
         public List<Job> QueryJobs()
         {
             return ConstructListFromTable(jobSQL.QueryJobs());

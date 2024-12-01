@@ -270,6 +270,10 @@ namespace Presentacion
                 }
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Please complete all the required fields");
+            }
         }
     }
 }

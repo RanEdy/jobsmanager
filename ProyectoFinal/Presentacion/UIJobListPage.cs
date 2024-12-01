@@ -16,7 +16,7 @@ namespace Presentacion
         private FlowLayoutPanel rejected, pending, accepted;
         private RequestController requestController = new RequestController();
         private JobController jobController = new JobController();
-        public UIJobListPage(Size size)
+        public UIJobListPage(Size size, bool adminMode)
         {
             this.Size = size;
             this.BackColor = Style.LIGHT_GRAY;

@@ -55,7 +55,6 @@ namespace Presentacion
                 Height = this.Height * 15 / 100,
                 BorderStyle = BorderStyle.FixedSingle
             };
-            this.Controls.Add(label);
             jobBlocksPanel = new FlowLayoutPanel()
             {
                 AutoScroll = true,

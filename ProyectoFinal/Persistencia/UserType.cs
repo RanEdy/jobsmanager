@@ -9,7 +9,7 @@ namespace Persistencia
     public enum UserType
     {
         ADMIN  = 0,
-        SUPERIVSOR = 1,
+        SUPERVISOR = 1,
         WORKER = 2
     }
 }
