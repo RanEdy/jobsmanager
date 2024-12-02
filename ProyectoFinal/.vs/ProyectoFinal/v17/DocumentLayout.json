@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uiadminreportspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiadminreportspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\presentacion\\uimainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uimainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|c:\\users\\erand\\dev\\jobsmanager\\proyectofinal\\persistencia\\jobsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5F49680-66C4-4C68-AE3A-F1E3A87E390C}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\jobsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\presentacion\\uiloginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67BE4332-B69D-4EFD-893A-445F3DCFF3D7}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\uiloginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,29 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "JobSQL.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\JobSQL.cs",
-              "RelativeDocumentMoniker": "Persistencia\\JobSQL.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Persistencia\\JobSQL.cs",
-              "RelativeToolTip": "Persistencia\\JobSQL.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAWwCcAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UIMainForm.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIMainForm.cs",
+              "RelativeDocumentMoniker": "Presentacion\\UIMainForm.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIMainForm.cs",
+              "RelativeToolTip": "Presentacion\\UIMainForm.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T06:55:17.272Z",
+              "WhenOpened": "2024-12-01T21:11:00.808Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UIAdminReportsPage.cs",
-              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIAdminReportsPage.cs",
-              "RelativeDocumentMoniker": "Presentacion\\UIAdminReportsPage.cs",
-              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UIAdminReportsPage.cs",
-              "RelativeToolTip": "Presentacion\\UIAdminReportsPage.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAYwFsAAAB7AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UILoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UILoginForm.cs",
+              "RelativeDocumentMoniker": "Presentacion\\UILoginForm.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\ProyectoFinal\\Presentacion\\UILoginForm.cs",
+              "RelativeToolTip": "Presentacion\\UILoginForm.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T06:04:19.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T21:09:46.25Z"
             }
           ]
         }
