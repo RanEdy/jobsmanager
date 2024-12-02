@@ -29,11 +29,13 @@ namespace Presentacion
         private Image modifiedImage;
         private UserController userController;
         public bool insertMode;
+        private UIMainForm mainForm;
 
         //Modo Edicion (predeterminado)
         //Modo Insercion
-        public UIProfilePage(Size size, User user, bool insertMode=false)
+        public UIProfilePage(Size size, User user, bool insertMode=false, UIMainForm mainForm=null)
         {
+            this.mainForm = mainForm;
             this.insertMode = insertMode;
             userData = user;
             modifiedImage = user.ProfileImage;
@@ -119,7 +121,17 @@ namespace Presentacion
 
                     UpdateUserData();
 
-                    if (!insertMode) userController.EditUser(userData);
+                    if (!insertMode)
+                    {
+                        userController.EditUser(userData);
+                        this.Dispose();
+
+                        mainForm.optionsDictionary["Profile"] = new UIProfilePage(mainForm.contentDisplayPanel.Size, userData, insertMode, mainForm);
+                        mainForm.Refresh();
+                        mainForm.Update();
+                        mainForm.Validate();
+                        mainForm.optionsDictionary["Profile"].Update();
+                    }
                     else
                     {
                         //Crear un nuevo bloque y actualizar la lista
@@ -129,8 +141,10 @@ namespace Presentacion
                         UIUserBlock ub = new UIUserBlock(userData, usersPage.blockSize);
                         ub.uIAdminUsersPage = usersPage;
                         usersPage.userBlocksPanel.Controls.Add(ub);
+
                     }
                     MessageBox.Show("Data saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                 }
                 else
                 {
@@ -404,11 +418,21 @@ namespace Presentacion
                             UpdateUserField(checkBox.Name, checkBox.Checked.ToString());
                         else if (control is DateTimePicker datePicker)
                             UpdateUserField(datePicker.Name, datePicker.Value.ToString("yyyy-MM-dd"));
+                        
+                    }
+                    foreach (var control in t.Controls)
+                    {
+                        if (control is Label label)
+                        {
+                            if (label.Name == "Age") label.Text = $"{userData.Age} years";
+                            if (label.Name == "Seniority") label.Text = $"{userData.Seniority} years";
+                        }
                     }
                 }
             }
             userData.Address = modifiedAddress;
             userData.ProfileImage = modifiedImage;
+            if (userData.ProfileImage == null) userData.ProfileImage = Properties.Resources.UserIcon;
         }
 
         private string GetUserDataValue(string name)

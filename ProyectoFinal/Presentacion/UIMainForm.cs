@@ -24,14 +24,14 @@ namespace Presentacion
         private float fontPercentage = 0.15f;
 
         private Panel contentPanel;
-        private Panel contentDisplayPanel;
+        public Panel contentDisplayPanel;
         private FlowLayoutPanel optionsTopPanel;
 
         public Form loginForm { get; set; }
 
         private List<Button> optionsButtonList = new List<Button>();
 
-        private Dictionary<string, Panel> optionsDictionary;
+        public Dictionary<string, Panel> optionsDictionary;
         private Dictionary<string, Image> optionsImagesDictionary;
 
 
@@ -140,7 +140,7 @@ namespace Presentacion
             //Mapear los nombres de cada opcion con su respectivo panel
             optionsDictionary = new Dictionary<string, Panel>()
             {
-                {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser())},
+                {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser(), false, this)},
                 {"Users", new UIAdminUsersPage(contentDisplayPanel.Size)},
                 {"Jobs", new UIAdminJobsPage(contentDisplayPanel.Size)},
                 {"Reports", new UIAdminReportsPage(contentDisplayPanel.Size)}
@@ -165,7 +165,7 @@ namespace Presentacion
             //Mapear los nombres de cada opcion con su respectivo panel
             optionsDictionary = new Dictionary<string, Panel>()
             {
-                {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser())},
+                {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser(), false, this)},
                 {"Request", new UIRequestPage(contentDisplayPanel.Size)},
                 //{"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
                 {"Job List", new UIJobListPage(contentDisplayPanel.Size, false)}

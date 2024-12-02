@@ -91,7 +91,7 @@ namespace Presentacion
                     if (requests == null) continue;
                     else 
                     { 
-                        foreach (Request request in requests) if (user.Id == request.UserId) userBlocksPanel.Controls.Add(ub);
+                        foreach (Request request in requests) if (user.Id == request.UserId && request.State == RequestState.PENDING) userBlocksPanel.Controls.Add(ub);
                     }
                 }
 

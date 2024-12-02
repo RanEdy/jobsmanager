@@ -183,6 +183,8 @@ namespace Presentacion
             {
                 if (t.Text.Trim().Length == 0) return false;
             }
+            if (!int.TryParse(textBoxDict["Duration"].Text, out int a)) return false;
+            if (!int.TryParse(textBoxDict["Maximum Users"].Text, out int b)) return false;
             return true;
         }
 
@@ -230,6 +232,10 @@ namespace Presentacion
                 jb.adminJobsPage = adminJobsPage;
                 adminJobsPage.jobBlocksPanel.Controls.Add(jb);
                 Close();
+            }
+            else
+            {
+                MessageBox.Show("Please complete all the required fields");
             }
         }
 

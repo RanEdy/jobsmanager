@@ -9,15 +9,13 @@ namespace Negocio
 {
     public class LoginController
     {
-        private UserController userController = new UserController();
-
-
         ///<summary>
         ///Devuelve true si el usuario existe y se logro iniciar sesion <br></br>
         ///Devuelve false si el usuario no se encontro o si hubo algun problema
         ///</summary>
         public bool VerifyAndLogUser(string email, string password)
         {
+            UserController userController = new UserController();
             User user = userController.GetUserLogin(email, password);
             if (user != null)
             {
@@ -27,7 +25,6 @@ namespace Negocio
                     return true;
                 }
             }
-            //TODO::Cambiarlo a false cuando ya este implmentada la base de datos
             return false;
         }
     }

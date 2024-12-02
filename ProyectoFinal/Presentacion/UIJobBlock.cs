@@ -207,12 +207,15 @@ namespace Presentacion
             JobController c = new JobController();
             List<Job> userJobs = c.QueryJobsByUser(userId);
             bool conflict = false;
-            foreach (Job j in userJobs)
+            if (userJobs != null)
             {
-                //Si en los trabajos del usuario existe un trabajo con la misma fecha o en la misma hora
-                if (jobData.StartDate == j.StartDate) conflict = true;
-                if (jobData.StartDate.Hour == j.StartDate.Hour) conflict = true;
-                if (jobData.StartDate.AddHours(jobData.Duration) > j.StartDate) conflict = true;
+                foreach (Job j in userJobs)
+                {
+                    //Si en los trabajos del usuario existe un trabajo con la misma fecha o en la misma hora
+                    if (jobData.StartDate == j.StartDate) conflict = true;
+                    if (jobData.StartDate.Hour == j.StartDate.Hour) conflict = true;
+                    if (jobData.StartDate.AddHours(jobData.Duration) > j.StartDate) conflict = true;
+                }
             }
             if (conflict)
             {
