@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +12,23 @@ namespace Persistencia
 {
     public class ConnectionDB
     {
-        const string server = "localhost";
-        const int port = 3306;
-        const string database = "gestioneventos";
-        const string user_id = "root";
-        const string password = "JKm3fZm3S1n3m8W";
+        MySqlConnection mySqlConnection;
 
-        MySqlConnection mySqlConnection = new
-            MySqlConnection($"server={server};Port={port};database={database};uid={user_id};pwd={password};");
+        public ConnectionDB()
+        {
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Combinar la ruta base con una ruta relativa
+            string relativePath = "connection.txt";
+            string fullPath = Path.Combine(basePath, relativePath);
+
+            string sqlConnection = "";
+            foreach (string line in File.ReadLines(fullPath))
+            {
+                sqlConnection += line + ";"; 
+            }
+            mySqlConnection = new MySqlConnection(sqlConnection);
+        }
 
         public MySqlConnection OpenConnection()
         {
