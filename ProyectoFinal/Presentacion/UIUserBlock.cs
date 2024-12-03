@@ -22,11 +22,13 @@ namespace Presentacion
         private JobController jobController = new JobController();
         private bool isRequest;
         private int jobId;
+        private UIMainForm mainForm;
 
         //Modo Administrador (predeterminado)
         //Modo Solicitud
-        public UIUserBlock(User userData, Size size, bool isRequest=false, int jobId=-1)
+        public UIUserBlock(User userData, Size size, bool isRequest=false, int jobId=-1, UIMainForm mainForm=null)
         {
+            this.mainForm = mainForm;
             this.jobId = jobId;
             this.isRequest = isRequest;
             this.userData = userData;
@@ -197,7 +199,7 @@ namespace Presentacion
         private void Edit_Click(object sender, EventArgs e)
         {
             if (editProfile != null) editProfile.Dispose();
-            editProfile = new UIUserEditForm(new UIProfilePage(UIMainForm.finalSize, userData));
+            editProfile = new UIUserEditForm(new UIProfilePage(UIMainForm.finalSize, userData, false,mainForm));
             editProfile.adminUsersPage = uIAdminUsersPage;
             editProfile.externBlock = this;
             editProfile.Show();

@@ -14,7 +14,7 @@ namespace Persistencia
         const int port = 3306;
         const string database = "gestioneventos";
         const string user_id = "root";
-        const string password = "JMcn92uJc7d2shfh2";
+        const string password = "JKm3fZm3S1n3m8W";
 
         MySqlConnection mySqlConnection = new
             MySqlConnection($"server={server};Port={port};database={database};uid={user_id};pwd={password};");

@@ -1,6 +1,4 @@
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.LoginForm.resources
-C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.MainForm.resources
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
 C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
@@ -88,9 +86,11 @@ C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\bin\Debug\K4os.Hash.xx
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.exe.config
-C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.AddressEditForm.resources
-C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.EmergencyContactEditForm.resources
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UIAddressEditForm.resources
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UIEmergencyContactEditForm.resources
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UILoginForm.resources
 C:\Users\erand\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UIMainForm.resources
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UIAddressEditForm.resources
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UIEmergencyContactEditForm.resources
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UILoginForm.resources
+C:\Users\Usuario\dev\jobsmanager\ProyectoFinal\Presentacion\obj\Debug\Presentacion.UIMainForm.resources

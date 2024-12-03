@@ -126,11 +126,14 @@ namespace Presentacion
                         userController.EditUser(userData);
                         this.Dispose();
 
-                        mainForm.optionsDictionary["Profile"] = new UIProfilePage(mainForm.contentDisplayPanel.Size, userData, insertMode, mainForm);
-                        mainForm.Refresh();
-                        mainForm.Update();
-                        mainForm.Validate();
-                        mainForm.optionsDictionary["Profile"].Update();
+                        if (mainForm != null)
+                        {
+                            mainForm.optionsDictionary["Profile"] = new UIProfilePage(mainForm.contentDisplayPanel.Size, userData, insertMode, mainForm);
+                            mainForm.Refresh();
+                            mainForm.Update();
+                            mainForm.Validate();
+                            mainForm.optionsDictionary["Profile"].Update();
+                        }
                     }
                     else
                     {

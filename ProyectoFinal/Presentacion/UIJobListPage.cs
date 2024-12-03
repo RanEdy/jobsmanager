@@ -15,7 +15,7 @@ namespace Presentacion
         private TableLayoutPanel mainPanel;
         private FlowLayoutPanel rejected, pending, accepted;
         private RequestController requestController = new RequestController();
-        private JobController jobController = new JobController();
+
         public UIJobListPage(Size size, bool adminMode)
         {
             this.Size = size;
@@ -82,9 +82,10 @@ namespace Presentacion
             List<Job> requestedJobs = new List<Job>();
             foreach (Request request in requests)
             {
-                Job j = jobController.GetJob(request.JobId);
+                JobController controller = new JobController();
+                Job j = controller.GetJob(request.JobId);
 
-                UIJobBlock jb = new UIJobBlock(blockSize, j, true);
+                UIJobBlock jb = new UIJobBlock(blockSize, j, true, this);
                 jb.userId = loggedUser.Id;
 
                 switch(request.State)
@@ -94,6 +95,12 @@ namespace Presentacion
                     case RequestState.ACCEPTED: accepted.Controls.Add(jb); break;
                 }
             }
+        }
+
+        public void Reset()
+        {
+            rejected.Controls.Clear(); pending.Controls.Clear(); accepted.Controls.Clear();
+            InitJobBlocks();
         }
 
     }

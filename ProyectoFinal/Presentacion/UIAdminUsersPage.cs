@@ -21,11 +21,13 @@ namespace Presentacion
         private UIUserEditForm userEditForm;
         private bool isRequestMode;
         private int jobId;
+        private UIMainForm mainForm;
 
         //Modo Administracion (predeterminado)
         //Modo Solicitudes
-        public UIAdminUsersPage(Size size, bool isRequestMode=false, int jobId=-1)
+        public UIAdminUsersPage(Size size, bool isRequestMode=false, int jobId=-1, UIMainForm mainForm=null)
         {
+            this.mainForm = mainForm;
             this.jobId = jobId;
             this.isRequestMode = isRequestMode;
             this.Size = size;
@@ -83,7 +85,7 @@ namespace Presentacion
             if (users == null) return;
             foreach (User user in users)
             {
-                UIUserBlock ub = isRequestMode ? new UIUserBlock(user, blockSize, true, jobId) : new UIUserBlock(user, blockSize);
+                UIUserBlock ub = isRequestMode ? new UIUserBlock(user, blockSize, true, jobId, mainForm) : new UIUserBlock(user, blockSize);
                 ub.uIAdminUsersPage = this;
 
                 if (isRequestMode)
@@ -147,7 +149,7 @@ namespace Presentacion
                 ProfileImage = Properties.Resources.UserIcon,
             };
             //Crear un usuario nuevo
-            UIProfilePage upp = new UIProfilePage(UIMainForm.finalSize, u, true);
+            UIProfilePage upp = new UIProfilePage(UIMainForm.finalSize, u, true, mainForm);
             upp.usersPage = this;
             userEditForm = new UIUserEditForm(upp, true);
             userEditForm.adminUsersPage = this;

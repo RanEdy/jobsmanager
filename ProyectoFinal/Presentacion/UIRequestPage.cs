@@ -16,9 +16,11 @@ namespace Presentacion
         private JobController controller = new JobController();
         private RequestController requestController = new RequestController();
         private Size blockSize;
+        private UIJobListPage jobListPage;
  
-        public UIRequestPage(Size size)
+        public UIRequestPage(Size size, UIJobListPage jobListPage=null)
         {
+            this.jobListPage = jobListPage;
             this.Size = size;
             this.BackColor = Style.WHITE;
             this.Dock = DockStyle.Fill;
@@ -67,7 +69,7 @@ namespace Presentacion
             if (jobs == null) return;
             foreach (Job job in jobs)
             {
-                UIJobBlock jb = new UIJobBlock(blockSize, job);
+                UIJobBlock jb = new UIJobBlock(blockSize, job, false, jobListPage);
                 blocks.Add(jb);
 
                 if (userJobs == null) continue;

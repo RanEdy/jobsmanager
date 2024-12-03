@@ -141,7 +141,7 @@ namespace Presentacion
             optionsDictionary = new Dictionary<string, Panel>()
             {
                 {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser(), false, this)},
-                {"Users", new UIAdminUsersPage(contentDisplayPanel.Size)},
+                {"Users", new UIAdminUsersPage(contentDisplayPanel.Size, false, -1, this)},
                 {"Jobs", new UIAdminJobsPage(contentDisplayPanel.Size)},
                 {"Reports", new UIAdminReportsPage(contentDisplayPanel.Size)}
             };
@@ -163,12 +163,13 @@ namespace Presentacion
         private void InitForWorker()
         {
             //Mapear los nombres de cada opcion con su respectivo panel
+            UIJobListPage jp = new UIJobListPage(contentDisplayPanel.Size, false);
             optionsDictionary = new Dictionary<string, Panel>()
             {
                 {"Profile", new UIProfilePage(contentDisplayPanel.Size, UserController.GetLoggedUser(), false, this)},
-                {"Request", new UIRequestPage(contentDisplayPanel.Size)},
+                {"Request", new UIRequestPage(contentDisplayPanel.Size, jp)},
                 //{"Schedule", new UISchedulePage(contentDisplayPanel.Size)},
-                {"Job List", new UIJobListPage(contentDisplayPanel.Size, false)}
+                {"Job List", jp}
             };
 
             //Mapear los nombres de cada opcion con su respectiva imagen

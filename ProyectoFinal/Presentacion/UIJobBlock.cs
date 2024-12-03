@@ -17,6 +17,7 @@ namespace Presentacion
         public int userId;
         public UIAdminJobsPage adminJobsPage;
         private UIAdminRequestForm adminRequestForm;
+        private UIJobListPage jobListPage;
         private bool adminMode = UserController.IsLoggedUserAdmin();
         private bool isRequest;
         private JobController controller = new JobController();
@@ -31,8 +32,9 @@ namespace Presentacion
         //Modo Administrador
         //Modo Empleado
         //Modo Empleado en Solicitud
-        public UIJobBlock(Size size, Job jobData, bool isRequest=false)
+        public UIJobBlock(Size size, Job jobData, bool isRequest=false, UIJobListPage jobListPage=null)
         {
+            this.jobListPage = jobListPage;
             this.isRequest = isRequest;
             this.jobData = jobData;
             this.Size = size;
@@ -212,9 +214,14 @@ namespace Presentacion
                 foreach (Job j in userJobs)
                 {
                     //Si en los trabajos del usuario existe un trabajo con la misma fecha o en la misma hora
-                    if (jobData.StartDate == j.StartDate) conflict = true;
-                    if (jobData.StartDate.Hour == j.StartDate.Hour) conflict = true;
-                    if (jobData.StartDate.AddHours(jobData.Duration) > j.StartDate) conflict = true;
+                    if (!jobData.Equals(j))
+                    {
+                        if (jobData.StartDate == j.StartDate)
+                        {
+                            if (jobData.StartDate.Hour == j.StartDate.Hour) conflict = true;
+                            else if (jobData.StartDate.AddHours(jobData.Duration) > j.StartDate) conflict = true;
+                        }
+                    }
                 }
             }
             if (conflict)
@@ -232,6 +239,8 @@ namespace Presentacion
                 requestController.InsertRequest(r);
 
                 this.Visible = false;
+                //Actualizar jobList
+                jobListPage.Reset();
             }
         }
 
