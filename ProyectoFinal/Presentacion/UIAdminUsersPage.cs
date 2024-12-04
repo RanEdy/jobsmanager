@@ -97,7 +97,7 @@ namespace Presentacion
                     }
                 }
 
-                else userBlocksPanel.Controls.Add(ub);
+                else if (UserController.GetLoggedUser().Id != user.Id) userBlocksPanel.Controls.Add(ub);
             }
         }
 

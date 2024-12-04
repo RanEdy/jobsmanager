@@ -35,6 +35,7 @@ namespace Presentacion
             externBlock = new UIUserBlock(externBlock.userData, externBlock.Size);
             externBlock.uIAdminUsersPage = adminUsersPage;
             adminUsersPage.userBlocksPanel.Controls.Add(externBlock);
+            profilePage.Reset(externBlock.userData);
             Close();
         }
 

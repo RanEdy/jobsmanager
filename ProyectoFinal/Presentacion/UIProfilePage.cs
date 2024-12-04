@@ -126,14 +126,8 @@ namespace Presentacion
                         userController.EditUser(userData);
                         this.Dispose();
 
-                        if (mainForm != null)
-                        {
-                            mainForm.optionsDictionary["Profile"] = new UIProfilePage(mainForm.contentDisplayPanel.Size, userData, insertMode, mainForm);
-                            mainForm.Refresh();
-                            mainForm.Update();
-                            mainForm.Validate();
-                            mainForm.optionsDictionary["Profile"].Update();
-                        }
+                        //Actualizar el panel de perfil
+                        Reset(userData);
                     }
                     else
                     {
@@ -159,6 +153,18 @@ namespace Presentacion
             tablePanel.Controls.Add(fieldsPanel, 1, 0);
             this.Controls.Add(tablePanel);
             this.Controls.Add(savePanel);
+        }
+
+        public void Reset(User userData)
+        {
+            if (mainForm != null)
+            {
+                mainForm.optionsDictionary["Profile"] = new UIProfilePage(mainForm.contentDisplayPanel.Size, userData, insertMode, mainForm);
+                mainForm.Refresh();
+                mainForm.Update();
+                mainForm.Validate();
+                mainForm.optionsDictionary["Profile"].Update();
+            }
         }
 
         private void InitFields()
@@ -553,6 +559,7 @@ namespace Presentacion
             };
             imagePanel.Controls.Add(addImg);
         }
+    
     }
 
 }

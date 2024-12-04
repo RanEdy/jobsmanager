@@ -32,9 +32,20 @@ namespace Presentacion
 
         private void InitUI()
         {
+            TableLayoutPanel mainPanel = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 2,
+                AutoSize = true,
+            };
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 15));
+            mainPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 85));
+
+
             Label label = new Label()
             {
-                Dock = DockStyle.Top,
+                Dock = DockStyle.Fill,
                 Text = "AVAILABLE JOBS",
                 ForeColor = Style.BLUE,
                 Font = new Font(Style.FONT_BAHNSCHRTFT, 28, FontStyle.Bold),
@@ -42,7 +53,7 @@ namespace Presentacion
                 Width = this.Width,
                 Height = this.Height * 10 / 100,
             };
-            this.Controls.Add(label);
+            mainPanel.Controls.Add(label);
             jobBlocksPanel = new FlowLayoutPanel()
             {
                 AutoScroll = true,
@@ -50,10 +61,10 @@ namespace Presentacion
                 BackColor = Style.LIGHT_GRAY,
                 Width = this.Width * 95 / 100,
                 Height = this.Height * 80 /100,
-                Padding = new Padding(0, this.Height * 10 / 100, 0, 0)
             };
-            blockSize = new Size(jobBlocksPanel.Width * 95 / 100, jobBlocksPanel.Height * 15 / 100);
-            this.Controls.Add(jobBlocksPanel);
+            blockSize = new Size(jobBlocksPanel.Width, jobBlocksPanel.Height * 15 / 100);
+            mainPanel.Controls.Add(jobBlocksPanel);
+            this.Controls.Add(mainPanel);
         }
 
         private void InitJobBlocks()
