@@ -1,0 +1,1 @@
+﻿server=localhost;port=3306;database=gestioneventos;uid=root;password=JKm3fZm3S1n3m8W
