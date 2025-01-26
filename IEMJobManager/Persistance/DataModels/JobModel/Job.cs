@@ -28,18 +28,5 @@ namespace Persistance.DataModels.JobModel
         public int MaxUsers { get; set; }
         public Address Address { get; set; }
 
-        public Job Clone()
-        {
-            return new Job()
-            {
-                Id = Id,
-                DisplayName = DisplayName,
-                SiteName = SiteName,
-                StartDate = DateTime.Parse(StartDate.ToString()),
-                Duration = Duration,
-                MaxUsers = MaxUsers,
-                Address = Address.Clone()
-            };
-        }
     }
 }

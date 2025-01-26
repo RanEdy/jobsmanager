@@ -69,7 +69,7 @@
     </Compile>
     <Compile Include="UIAdmin\UIAdminJobsSection.cs" />
     <Compile Include="UIAdmin\UIAdminUsersSection.cs" />
-    <Compile Include="UIAdmin\UIJobEditPanel.cs">
+    <Compile Include="UIAdmin\UIAdminJobEditPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UIWorker\UIJobListSection.cs" />

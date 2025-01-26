@@ -85,10 +85,9 @@ namespace Presentation.Common.UI
                                 || string.IsNullOrWhiteSpace(data.Address.Street) || string.IsNullOrWhiteSpace(data.Address.PostalCode)
                                 || string.IsNullOrWhiteSpace(data.Address.Number));
             bool verifyTextual = !( string.IsNullOrWhiteSpace(data.Name) || string.IsNullOrWhiteSpace(data.Email) || string.IsNullOrWhiteSpace(data.Password) );
-            bool verifyPhone = !string.IsNullOrWhiteSpace(data.Phone) && uint.TryParse(data.Phone.Replace(" ", ""), out _);
-            bool verifyEmail = !new UserController().VerifyEmail(data.Email);
+            bool verifyPhone = !string.IsNullOrWhiteSpace(data.Phone) && ulong.TryParse(data.Phone.Replace(" ", "").Trim(), out _);
 
-            return verifyTextual && verifyPhone && verifyAddress && verifyEmail;
+            return verifyTextual && verifyPhone && verifyAddress;
         }
 
     }

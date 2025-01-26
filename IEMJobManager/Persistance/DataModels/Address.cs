@@ -9,9 +9,5 @@ namespace Persistance.DataModels
         public string PostalCode { get; set; }
         public string Number { get; set; }
 
-        public Address Clone()
-        {
-            return new Address { Street = Street, City = City, State = State, PostalCode = PostalCode, Number = Number };
-        }
     }
 }

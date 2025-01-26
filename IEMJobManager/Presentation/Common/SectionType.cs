@@ -11,7 +11,6 @@ namespace Presentation.Common
         PROFILE,
         ADMIN_USERS,
         ADMIN_JOBS,
-        ADMIN_REPORTS,
         WORKER_REQUEST,
         WORKER_JOB_LIST,
     }

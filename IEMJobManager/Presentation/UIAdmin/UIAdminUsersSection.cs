@@ -128,7 +128,8 @@ namespace Presentation.UIAdmin
                 Height = blockPanel.Height,
                 Width = blockPanel.Width * 30 / 100,
                 Text = data.Name,
-                Anchor = AnchorStyles.Left,
+                Anchor = AnchorStyles.None,
+                TextAlign = ContentAlignment.MiddleLeft,
                 Font = new Font(Style.FONT_BAHNSCHRIFT, 20, FontStyle.Bold),
                 ForeColor = textColor
             };
@@ -139,7 +140,8 @@ namespace Presentation.UIAdmin
                 Height = blockPanel.Height,
                 Width = blockPanel.Width * 15 / 100,
                 Text = "Seniority: " + data.Seniority,
-                Anchor = AnchorStyles.Left,
+                Anchor = AnchorStyles.None,
+                TextAlign = ContentAlignment.MiddleLeft,
                 Font = new Font(Style.FONT_BAHNSCHRIFT, 20, FontStyle.Bold),
                 ForeColor = textColor
             };

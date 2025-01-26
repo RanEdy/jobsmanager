@@ -291,7 +291,7 @@ namespace Presentation.UIAdmin
             tablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0f));
 
             Size panelSize = new Size(editJobWindow.Width*90/100, editJobWindow.Height*90/100);
-            UIJobEditPanel jobEditPanel = new UIJobEditPanel(panelSize, jobData, isNewJob);
+            UIAdminJobEditPanel jobEditPanel = new UIAdminJobEditPanel(panelSize, jobData, isNewJob);
 
             Button saveButton = new Button()
             {

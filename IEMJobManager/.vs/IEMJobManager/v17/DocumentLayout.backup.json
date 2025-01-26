@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\IEMJobManager\\",
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\iemjobmanager\\presentation\\uiadmin\\uiadminjobssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\uiadmin\\uiadminjobssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\jobsmanager\\iemjobmanager\\presentation\\common\\style.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\common\\style.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\jobsmanager\\iemjobmanager\\presentation\\common\\sectiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\common\\sectiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\jobsmanager\\iemjobmanager\\presentation\\common\\isection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\common\\isection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +31,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UIAdminJobsSection.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobsSection.cs",
-              "RelativeDocumentMoniker": "Presentation\\UIAdmin\\UIAdminJobsSection.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobsSection.cs",
-              "RelativeToolTip": "Presentation\\UIAdmin\\UIAdminJobsSection.cs",
-              "ViewState": "AgIAANcBAAAAAAAAAAAAwAECAAAqAAAAAAAAAA==",
+              "Title": "Style.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\Style.cs",
+              "RelativeDocumentMoniker": "Presentation\\Common\\Style.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\Style.cs",
+              "RelativeToolTip": "Presentation\\Common\\Style.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T23:15:11.046Z",
+              "WhenOpened": "2025-01-25T14:49:43.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SectionType.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\SectionType.cs",
+              "RelativeDocumentMoniker": "Presentation\\Common\\SectionType.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\SectionType.cs",
+              "RelativeToolTip": "Presentation\\Common\\SectionType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T14:48:00.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ISection.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\ISection.cs",
+              "RelativeDocumentMoniker": "Presentation\\Common\\ISection.cs",
+              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\ISection.cs",
+              "RelativeToolTip": "Presentation\\Common\\ISection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T14:46:03.349Z",
               "EditorCaption": ""
             }
           ]

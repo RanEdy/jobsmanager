@@ -40,23 +40,5 @@ namespace Persistance.DataModels.UserModel
         public bool HasGuardCard { get; set; }
         public Image ProfileImage { get; set; }
 
-        public User Clone()
-        {
-            return new User()
-            {
-                Id = this.Id,
-                Name = this.Name,
-                Email = this.Email,
-                Password = this.Password,
-                Birthday = DateTime.Parse(this.Birthday.ToString()),
-                HireDate = DateTime.Parse(this.HireDate.ToString()),
-                Address = this.Address.Clone(),
-                Phone = this.Phone,
-                UserType = this.UserType,
-                IsActivated = this.IsActivated,
-                HasGuardCard = this.HasGuardCard,
-                ProfileImage = new Bitmap(this.ProfileImage)
-            };
-        }
     }
 }

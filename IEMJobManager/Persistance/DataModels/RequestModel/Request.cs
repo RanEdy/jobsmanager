@@ -9,10 +9,5 @@ namespace Persistance.DataModels.RequestModel
         public int UserId { get; set; }
         public RequestState State { get; set; }
 
-        public Request Clone()
-        {
-            var json = JsonSerializer.Serialize(this);
-            return JsonSerializer.Deserialize<Request>(json);
-        }
     }
 }

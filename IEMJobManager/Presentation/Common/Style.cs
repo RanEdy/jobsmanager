@@ -2,7 +2,7 @@
 
 namespace Presentation.Common
 {
-    public class Style
+    public static class Style
     {
         public static readonly Color RED = ColorTranslator.FromHtml("#E06666");
         public static readonly Color LIGHT_RED = ColorTranslator.FromHtml("#EA9999");
