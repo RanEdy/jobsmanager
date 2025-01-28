@@ -7,9 +7,9 @@ namespace Presentation.Common.UI
 {
     public class UILoginWindow : Form
     {
-        readonly Size maxSize = new Size(650, 1000);
+        readonly Size maxSize = new Size(650, 1200);
         readonly int widthPercentage = 35;
-        readonly int heightPercentage = 65;
+        readonly int heightPercentage = 80;
 
         private FlowLayoutPanel mainPanel;
         private Label lTitle, lEmail, lPassword;
@@ -64,7 +64,7 @@ namespace Presentation.Common.UI
 
             lTitle = new Label()
             {
-                Text = "JOB     MANAGER     APP",
+                Text = "JOB MANAGER APP",
                 Font = bigFont,
                 AutoSize = true,
                 Padding = new Padding(paddingContent, paddingContent-15, paddingContent, paddingContent+60),

@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\",
+  "WorkspaceRootPath": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\jobsmanager\\iemjobmanager\\presentation\\uiadmin\\uiadminjobeditpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\erand\\dev\\jobsmanager\\iemjobmanager\\presentation\\common\\ui\\uiloginwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\common\\ui\\uiloginwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B9E84AD-4588-4A4B-8BEC-1A4942BB0585}|Persistance\\Persistance.csproj|c:\\users\\erand\\dev\\jobsmanager\\iemjobmanager\\persistance\\dbconfig.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8B9E84AD-4588-4A4B-8BEC-1A4942BB0585}|Persistance\\Persistance.csproj|solutionrelative:persistance\\dbconfig.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\erand\\dev\\jobsmanager\\iemjobmanager\\presentation\\uiadmin\\uiadminjobeditpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\uiadmin\\uiadminjobeditpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\jobsmanager\\iemjobmanager\\presentation\\uiadmin\\uiadminuserssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\presentation\\uiadmin\\uiadminuserssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\uiadmin\\uiadminuserssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|c:\\users\\usuario\\dev\\jobsmanager\\iemjobmanager\\presentation\\uiadmin\\uiadminjobssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\presentation\\uiadmin\\uiadminjobssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{382929BA-2205-4486-9DCF-5392E47BD446}|Presentation\\Presentation.csproj|solutionrelative:presentation\\uiadmin\\uiadminjobssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,19 +30,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UILoginWindow.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\UI\\UILoginWindow.cs",
+              "RelativeDocumentMoniker": "Presentation\\Common\\UI\\UILoginWindow.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\Common\\UI\\UILoginWindow.cs",
+              "RelativeToolTip": "Presentation\\Common\\UI\\UILoginWindow.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAEIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T01:14:56.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dbconfig.txt",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Persistance\\dbconfig.txt",
+              "RelativeDocumentMoniker": "Persistance\\dbconfig.txt",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Persistance\\dbconfig.txt",
+              "RelativeToolTip": "Persistance\\dbconfig.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-01-28T01:12:02.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "UIAdminJobEditPanel.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobEditPanel.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobEditPanel.cs",
               "RelativeDocumentMoniker": "Presentation\\UIAdmin\\UIAdminJobEditPanel.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobEditPanel.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobEditPanel.cs",
               "RelativeToolTip": "Presentation\\UIAdmin\\UIAdminJobEditPanel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -43,29 +85,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UIAdminUsersSection.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminUsersSection.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminUsersSection.cs",
               "RelativeDocumentMoniker": "Presentation\\UIAdmin\\UIAdminUsersSection.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminUsersSection.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminUsersSection.cs",
               "RelativeToolTip": "Presentation\\UIAdmin\\UIAdminUsersSection.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T15:05:58.038Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-25T15:05:58.038Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "UIAdminJobsSection.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobsSection.cs",
+              "DocumentMoniker": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobsSection.cs",
               "RelativeDocumentMoniker": "Presentation\\UIAdmin\\UIAdminJobsSection.cs",
-              "ToolTip": "C:\\Users\\Usuario\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobsSection.cs",
+              "ToolTip": "C:\\Users\\erand\\dev\\jobsmanager\\IEMJobManager\\Presentation\\UIAdmin\\UIAdminJobsSection.cs",
               "RelativeToolTip": "Presentation\\UIAdmin\\UIAdminJobsSection.cs",
               "ViewState": "AgIAABIAAAAAAAAAAADwvx4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T15:03:53.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-25T15:03:53.079Z"
             }
           ]
         }
