@@ -1,0 +1,7 @@
+com\hexcrew\persistencia\HibernateUtil.class
+com\hexcrew\integracion\ServiceLocator.class
+com\hexcrew\DAO\AlumnoDAO.class
+com\hexcrew\DAO\UsuarioDAO.class
+com\hexcrew\persistencia\InterfaceDAO.class
+test\test.class
+com\hexcrew\persistencia\AbstractDAO.class

@@ -1,0 +1,6 @@
+com\hexcrew\facade\FacadeAlumno.class
+com\hexcrew\facade\FacadeUsuario.class
+test\test.class
+com\hexcrew\delegate\DelegateAlumno.class
+com\hexcrew\integracion\ServiceFacadeLocator.class
+com\hexcrew\delegate\DelegateUsuario.class
