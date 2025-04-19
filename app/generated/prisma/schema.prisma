@@ -1,0 +1,223 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  SUPERVISOR
+  MANAGER
+  LOGISTIC
+  DRIVER
+  DISPATCH
+  ASSISTANT_MANAGER
+}
+
+enum UserLevel {
+  MASTER
+  ADMIN
+  STAFF
+}
+
+enum GenericRequestStatus {
+  PENDING
+  REJECTED
+  ACCEPTED
+}
+
+enum USAState {
+  ALABAMA
+  ALASKA
+  ARIZONA
+  ARKANSAS
+  CALIFORNIA
+  COLORADO
+  CONNECTICUT
+  DELAWARE
+  FLORIDA
+  GEORGIA
+  HAWAII
+  IDAHO
+  ILLINOIS
+  INDIANA
+  IOWA
+  KANSAS
+  KENTUCKY
+  LOUISIANA
+  MAINE
+  MARYLAND
+  MASSACHUSETTS
+  MICHIGAN
+  MINNESOTA
+  MISSISSIPPI
+  MISSOURI
+  MONTANA
+  NEBRASKA
+  NEVADA
+  NEW_HAMPSHIRE
+  NEW_JERSEY
+  NEW_MEXICO
+  NEW_YORK
+  NORTH_CAROLINA
+  NORTH_DAKOTA
+  OHIO
+  OKLAHOMA
+  OREGON
+  PENNSYLVANIA
+  RHODE_ISLAND
+  SOUTH_CAROLINA
+  SOUTH_DAKOTA
+  TENNESSEE
+  TEXAS
+  UTAH
+  VERMONT
+  VIRGINIA
+  WASHINGTON
+  WEST_VIRGINIA
+  WISCONSIN
+  WYOMING
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  level    UserLevel
+  name     String
+  email    String
+  password String
+
+  address String
+  city    String
+  state   USAState
+  zipCode String
+
+  birthday  DateTime
+  hireDate  DateTime
+  phone     String
+  active    Boolean
+  guardCard Boolean
+
+  supervisotCount       Int
+  managerCount          Int
+  logisticCount         Int
+  driverCount           Int
+  dispatchCount         Int
+  assistantManagerCount Int
+
+  contactName1  String
+  contactPhone1 String
+  contactName2  String
+  contactPhone2 String
+
+  eventUsers    EventUserList[]
+  eventRequests EventRequest[]
+  incidents     Incident[]
+  shiftRequests ShiftRequest[]
+}
+
+model Event {
+  id      Int      @id @default(autoincrement())
+  name    String
+  city    String
+  state   USAState
+  zipCode String
+  address String
+
+  startDate DateTime
+  endDate   DateTime
+  public    Boolean
+  done      Boolean
+
+  eventUsers   EventUserList[]
+  sections     EventSection[]
+  userRequests EventRequest[]
+  incidents    Incident[]
+  shifts       EventShiftDay[]
+}
+
+model EventRequest {
+  id           Int                  @id @default(autoincrement())
+  eventId      Int
+  userId       Int
+  status       GenericRequestStatus
+  isInvitation Boolean
+  event        Event                @relation(fields: [eventId], references: [id])
+  user         User                 @relation(fields: [userId], references: [id])
+}
+
+model EventSection {
+  id          Int    @id @default(autoincrement())
+  eventId     Int
+  sectionName String
+  description String
+  event       Event  @relation(fields: [eventId], references: [id])
+
+  files SectionFile[]
+}
+
+model SectionFile {
+  id        Int          @id @default(autoincrement())
+  sectionId Int
+  name      String
+  dataBytes Bytes
+  section   EventSection @relation(fields: [sectionId], references: [id])
+}
+
+model EventUserList {
+  id      Int      @id @default(autoincrement())
+  userId  Int
+  eventId Int
+  role    UserRole
+  user    User     @relation(fields: [userId], references: [id])
+  event   Event    @relation(fields: [eventId], references: [id])
+}
+
+model Incident {
+  id           Int      @id @default(autoincrement())
+  eventId      Int
+  userId       Int
+  title        String
+  description  String
+  incidentDate DateTime
+  event        Event    @relation(fields: [eventId], references: [id])
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+model EventShiftTime {
+  id         Int      @id @default(autoincrement())
+  shiftDayId Int
+  startTime  DateTime
+  endTime    DateTime
+
+  shiftDay EventShiftDay @relation(fields: [shiftDayId], references: [id])
+}
+
+model EventShiftDay {
+  id       Int      @id @default(autoincrement())
+  eventId  Int
+  day      DateTime
+  maxUsers Int
+  role     UserRole
+  event    Event    @relation(fields: [eventId], references: [id])
+
+  times    EventShiftTime[]
+  requests ShiftRequest[]
+}
+
+model ShiftRequest {
+  id         Int                  @id @default(autoincrement())
+  shiftDayId Int
+  userId     Int
+  status     GenericRequestStatus
+  shiftDay   EventShiftDay        @relation(fields: [shiftDayId], references: [id])
+  user       User                 @relation(fields: [userId], references: [id])
+}
