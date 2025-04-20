@@ -2314,10 +2314,10 @@ export namespace Prisma {
     driverCount: number
     dispatchCount: number
     assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    contactName1: string | null
+    contactPhone1: string | null
+    contactName2: string | null
+    contactPhone2: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2492,10 +2492,10 @@ export namespace Prisma {
       driverCount: number
       dispatchCount: number
       assistantManagerCount: number
-      contactName1: string
-      contactPhone1: string
-      contactName2: string
-      contactPhone2: string
+      contactName1: string | null
+      contactPhone1: string | null
+      contactName2: string | null
+      contactPhone2: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -6005,7 +6005,7 @@ export namespace Prisma {
     id: number
     eventId: number
     sectionName: string
-    description: string
+    description: string | null
     _count: EventSectionCountAggregateOutputType | null
     _avg: EventSectionAvgAggregateOutputType | null
     _sum: EventSectionSumAggregateOutputType | null
@@ -6083,7 +6083,7 @@ export namespace Prisma {
       id: number
       eventId: number
       sectionName: string
-      description: string
+      description: string | null
     }, ExtArgs["result"]["eventSection"]>
     composites: {}
   }
@@ -13746,6 +13746,14 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   /**
    * Field references
    */
@@ -13911,10 +13919,10 @@ export namespace Prisma {
     driverCount?: IntFilter<"User"> | number
     dispatchCount?: IntFilter<"User"> | number
     assistantManagerCount?: IntFilter<"User"> | number
-    contactName1?: StringFilter<"User"> | string
-    contactPhone1?: StringFilter<"User"> | string
-    contactName2?: StringFilter<"User"> | string
-    contactPhone2?: StringFilter<"User"> | string
+    contactName1?: StringNullableFilter<"User"> | string | null
+    contactPhone1?: StringNullableFilter<"User"> | string | null
+    contactName2?: StringNullableFilter<"User"> | string | null
+    contactPhone2?: StringNullableFilter<"User"> | string | null
     eventUsers?: EventUserListListRelationFilter
     eventRequests?: EventRequestListRelationFilter
     incidents?: IncidentListRelationFilter
@@ -13942,10 +13950,10 @@ export namespace Prisma {
     driverCount?: SortOrder
     dispatchCount?: SortOrder
     assistantManagerCount?: SortOrder
-    contactName1?: SortOrder
-    contactPhone1?: SortOrder
-    contactName2?: SortOrder
-    contactPhone2?: SortOrder
+    contactName1?: SortOrderInput | SortOrder
+    contactPhone1?: SortOrderInput | SortOrder
+    contactName2?: SortOrderInput | SortOrder
+    contactPhone2?: SortOrderInput | SortOrder
     eventUsers?: EventUserListOrderByRelationAggregateInput
     eventRequests?: EventRequestOrderByRelationAggregateInput
     incidents?: IncidentOrderByRelationAggregateInput
@@ -13954,12 +13962,12 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     level?: EnumUserLevelFilter<"User"> | $Enums.UserLevel
     name?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     address?: StringFilter<"User"> | string
     city?: StringFilter<"User"> | string
@@ -13976,15 +13984,15 @@ export namespace Prisma {
     driverCount?: IntFilter<"User"> | number
     dispatchCount?: IntFilter<"User"> | number
     assistantManagerCount?: IntFilter<"User"> | number
-    contactName1?: StringFilter<"User"> | string
-    contactPhone1?: StringFilter<"User"> | string
-    contactName2?: StringFilter<"User"> | string
-    contactPhone2?: StringFilter<"User"> | string
+    contactName1?: StringNullableFilter<"User"> | string | null
+    contactPhone1?: StringNullableFilter<"User"> | string | null
+    contactName2?: StringNullableFilter<"User"> | string | null
+    contactPhone2?: StringNullableFilter<"User"> | string | null
     eventUsers?: EventUserListListRelationFilter
     eventRequests?: EventRequestListRelationFilter
     incidents?: IncidentListRelationFilter
     shiftRequests?: ShiftRequestListRelationFilter
-  }, "id">
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -14007,10 +14015,10 @@ export namespace Prisma {
     driverCount?: SortOrder
     dispatchCount?: SortOrder
     assistantManagerCount?: SortOrder
-    contactName1?: SortOrder
-    contactPhone1?: SortOrder
-    contactName2?: SortOrder
-    contactPhone2?: SortOrder
+    contactName1?: SortOrderInput | SortOrder
+    contactPhone1?: SortOrderInput | SortOrder
+    contactName2?: SortOrderInput | SortOrder
+    contactPhone2?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -14042,10 +14050,10 @@ export namespace Prisma {
     driverCount?: IntWithAggregatesFilter<"User"> | number
     dispatchCount?: IntWithAggregatesFilter<"User"> | number
     assistantManagerCount?: IntWithAggregatesFilter<"User"> | number
-    contactName1?: StringWithAggregatesFilter<"User"> | string
-    contactPhone1?: StringWithAggregatesFilter<"User"> | string
-    contactName2?: StringWithAggregatesFilter<"User"> | string
-    contactPhone2?: StringWithAggregatesFilter<"User"> | string
+    contactName1?: StringNullableWithAggregatesFilter<"User"> | string | null
+    contactPhone1?: StringNullableWithAggregatesFilter<"User"> | string | null
+    contactName2?: StringNullableWithAggregatesFilter<"User"> | string | null
+    contactPhone2?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type EventWhereInput = {
@@ -14209,7 +14217,7 @@ export namespace Prisma {
     id?: IntFilter<"EventSection"> | number
     eventId?: IntFilter<"EventSection"> | number
     sectionName?: StringFilter<"EventSection"> | string
-    description?: StringFilter<"EventSection"> | string
+    description?: StringNullableFilter<"EventSection"> | string | null
     event?: XOR<EventScalarRelationFilter, EventWhereInput>
     files?: SectionFileListRelationFilter
   }
@@ -14218,7 +14226,7 @@ export namespace Prisma {
     id?: SortOrder
     eventId?: SortOrder
     sectionName?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     event?: EventOrderByWithRelationInput
     files?: SectionFileOrderByRelationAggregateInput
   }
@@ -14230,7 +14238,7 @@ export namespace Prisma {
     NOT?: EventSectionWhereInput | EventSectionWhereInput[]
     eventId?: IntFilter<"EventSection"> | number
     sectionName?: StringFilter<"EventSection"> | string
-    description?: StringFilter<"EventSection"> | string
+    description?: StringNullableFilter<"EventSection"> | string | null
     event?: XOR<EventScalarRelationFilter, EventWhereInput>
     files?: SectionFileListRelationFilter
   }, "id">
@@ -14239,7 +14247,7 @@ export namespace Prisma {
     id?: SortOrder
     eventId?: SortOrder
     sectionName?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: EventSectionCountOrderByAggregateInput
     _avg?: EventSectionAvgOrderByAggregateInput
     _max?: EventSectionMaxOrderByAggregateInput
@@ -14254,7 +14262,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"EventSection"> | number
     eventId?: IntWithAggregatesFilter<"EventSection"> | number
     sectionName?: StringWithAggregatesFilter<"EventSection"> | string
-    description?: StringWithAggregatesFilter<"EventSection"> | string
+    description?: StringNullableWithAggregatesFilter<"EventSection"> | string | null
   }
 
   export type SectionFileWhereInput = {
@@ -14600,7 +14608,7 @@ export namespace Prisma {
   }
 
   export type UserCreateInput = {
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -14611,18 +14619,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListCreateNestedManyWithoutUserInput
     eventRequests?: EventRequestCreateNestedManyWithoutUserInput
     incidents?: IncidentCreateNestedManyWithoutUserInput
@@ -14631,7 +14639,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateInput = {
     id?: number
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -14642,18 +14650,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutUserInput
     eventRequests?: EventRequestUncheckedCreateNestedManyWithoutUserInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutUserInput
@@ -14680,10 +14688,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUpdateManyWithoutUserNestedInput
     eventRequests?: EventRequestUpdateManyWithoutUserNestedInput
     incidents?: IncidentUpdateManyWithoutUserNestedInput
@@ -14711,10 +14719,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUncheckedUpdateManyWithoutUserNestedInput
     eventRequests?: EventRequestUncheckedUpdateManyWithoutUserNestedInput
     incidents?: IncidentUncheckedUpdateManyWithoutUserNestedInput
@@ -14723,7 +14731,7 @@ export namespace Prisma {
 
   export type UserCreateManyInput = {
     id?: number
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -14734,18 +14742,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -14768,10 +14776,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -14795,10 +14803,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EventCreateInput = {
@@ -14809,8 +14817,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListCreateNestedManyWithoutEventInput
     sections?: EventSectionCreateNestedManyWithoutEventInput
     userRequests?: EventRequestCreateNestedManyWithoutEventInput
@@ -14827,8 +14835,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutEventInput
     sections?: EventSectionUncheckedCreateNestedManyWithoutEventInput
     userRequests?: EventRequestUncheckedCreateNestedManyWithoutEventInput
@@ -14880,8 +14888,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
   }
 
   export type EventUpdateManyMutationInput = {
@@ -14910,8 +14918,8 @@ export namespace Prisma {
   }
 
   export type EventRequestCreateInput = {
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
     event: EventCreateNestedOneWithoutUserRequestsInput
     user: UserCreateNestedOneWithoutEventRequestsInput
   }
@@ -14920,8 +14928,8 @@ export namespace Prisma {
     id?: number
     eventId: number
     userId: number
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
   }
 
   export type EventRequestUpdateInput = {
@@ -14943,8 +14951,8 @@ export namespace Prisma {
     id?: number
     eventId: number
     userId: number
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
   }
 
   export type EventRequestUpdateManyMutationInput = {
@@ -14962,7 +14970,7 @@ export namespace Prisma {
 
   export type EventSectionCreateInput = {
     sectionName: string
-    description: string
+    description?: string | null
     event: EventCreateNestedOneWithoutSectionsInput
     files?: SectionFileCreateNestedManyWithoutSectionInput
   }
@@ -14971,13 +14979,13 @@ export namespace Prisma {
     id?: number
     eventId: number
     sectionName: string
-    description: string
+    description?: string | null
     files?: SectionFileUncheckedCreateNestedManyWithoutSectionInput
   }
 
   export type EventSectionUpdateInput = {
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     event?: EventUpdateOneRequiredWithoutSectionsNestedInput
     files?: SectionFileUpdateManyWithoutSectionNestedInput
   }
@@ -14986,7 +14994,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     eventId?: IntFieldUpdateOperationsInput | number
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     files?: SectionFileUncheckedUpdateManyWithoutSectionNestedInput
   }
 
@@ -14994,19 +15002,19 @@ export namespace Prisma {
     id?: number
     eventId: number
     sectionName: string
-    description: string
+    description?: string | null
   }
 
   export type EventSectionUpdateManyMutationInput = {
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EventSectionUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     eventId?: IntFieldUpdateOperationsInput | number
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SectionFileCreateInput = {
@@ -15262,7 +15270,7 @@ export namespace Prisma {
   }
 
   export type ShiftRequestCreateInput = {
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
     shiftDay: EventShiftDayCreateNestedOneWithoutRequestsInput
     user: UserCreateNestedOneWithoutShiftRequestsInput
   }
@@ -15271,7 +15279,7 @@ export namespace Prisma {
     id?: number
     shiftDayId: number
     userId: number
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
   }
 
   export type ShiftRequestUpdateInput = {
@@ -15291,7 +15299,7 @@ export namespace Prisma {
     id?: number
     shiftDayId: number
     userId: number
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
   }
 
   export type ShiftRequestUpdateManyMutationInput = {
@@ -15361,6 +15369,21 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type EventUserListListRelationFilter = {
     every?: EventUserListWhereInput
     some?: EventUserListWhereInput
@@ -15383,6 +15406,11 @@ export namespace Prisma {
     every?: ShiftRequestWhereInput
     some?: ShiftRequestWhereInput
     none?: ShiftRequestWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type EventUserListOrderByRelationAggregateInput = {
@@ -15576,6 +15604,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type EventSectionListRelationFilter = {
@@ -16088,6 +16134,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type EventUserListUpdateManyWithoutUserNestedInput = {
@@ -16773,6 +16823,20 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -16859,6 +16923,34 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedEnumGenericRequestStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.GenericRequestStatus | EnumGenericRequestStatusFieldRefInput<$PrismaModel>
     in?: $Enums.GenericRequestStatus[] | ListEnumGenericRequestStatusFieldRefInput<$PrismaModel>
@@ -16932,16 +17024,16 @@ export namespace Prisma {
   }
 
   export type EventRequestCreateWithoutUserInput = {
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
     event: EventCreateNestedOneWithoutUserRequestsInput
   }
 
   export type EventRequestUncheckedCreateWithoutUserInput = {
     id?: number
     eventId: number
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
   }
 
   export type EventRequestCreateOrConnectWithoutUserInput = {
@@ -16980,14 +17072,14 @@ export namespace Prisma {
   }
 
   export type ShiftRequestCreateWithoutUserInput = {
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
     shiftDay: EventShiftDayCreateNestedOneWithoutRequestsInput
   }
 
   export type ShiftRequestUncheckedCreateWithoutUserInput = {
     id?: number
     shiftDayId: number
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
   }
 
   export type ShiftRequestCreateOrConnectWithoutUserInput = {
@@ -17130,14 +17222,14 @@ export namespace Prisma {
 
   export type EventSectionCreateWithoutEventInput = {
     sectionName: string
-    description: string
+    description?: string | null
     files?: SectionFileCreateNestedManyWithoutSectionInput
   }
 
   export type EventSectionUncheckedCreateWithoutEventInput = {
     id?: number
     sectionName: string
-    description: string
+    description?: string | null
     files?: SectionFileUncheckedCreateNestedManyWithoutSectionInput
   }
 
@@ -17152,16 +17244,16 @@ export namespace Prisma {
   }
 
   export type EventRequestCreateWithoutEventInput = {
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
     user: UserCreateNestedOneWithoutEventRequestsInput
   }
 
   export type EventRequestUncheckedCreateWithoutEventInput = {
     id?: number
     userId: number
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
   }
 
   export type EventRequestCreateOrConnectWithoutEventInput = {
@@ -17265,7 +17357,7 @@ export namespace Prisma {
     id?: IntFilter<"EventSection"> | number
     eventId?: IntFilter<"EventSection"> | number
     sectionName?: StringFilter<"EventSection"> | string
-    description?: StringFilter<"EventSection"> | string
+    description?: StringNullableFilter<"EventSection"> | string | null
   }
 
   export type EventRequestUpsertWithWhereUniqueWithoutEventInput = {
@@ -17335,8 +17427,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListCreateNestedManyWithoutEventInput
     sections?: EventSectionCreateNestedManyWithoutEventInput
     incidents?: IncidentCreateNestedManyWithoutEventInput
@@ -17352,8 +17444,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutEventInput
     sections?: EventSectionUncheckedCreateNestedManyWithoutEventInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutEventInput
@@ -17366,7 +17458,7 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutEventRequestsInput = {
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -17377,18 +17469,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListCreateNestedManyWithoutUserInput
     incidents?: IncidentCreateNestedManyWithoutUserInput
     shiftRequests?: ShiftRequestCreateNestedManyWithoutUserInput
@@ -17396,7 +17488,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutEventRequestsInput = {
     id?: number
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -17407,18 +17499,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutUserInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutUserInput
     shiftRequests?: ShiftRequestUncheckedCreateNestedManyWithoutUserInput
@@ -17504,10 +17596,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUpdateManyWithoutUserNestedInput
     incidents?: IncidentUpdateManyWithoutUserNestedInput
     shiftRequests?: ShiftRequestUpdateManyWithoutUserNestedInput
@@ -17534,10 +17626,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUncheckedUpdateManyWithoutUserNestedInput
     incidents?: IncidentUncheckedUpdateManyWithoutUserNestedInput
     shiftRequests?: ShiftRequestUncheckedUpdateManyWithoutUserNestedInput
@@ -17551,8 +17643,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListCreateNestedManyWithoutEventInput
     userRequests?: EventRequestCreateNestedManyWithoutEventInput
     incidents?: IncidentCreateNestedManyWithoutEventInput
@@ -17568,8 +17660,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutEventInput
     userRequests?: EventRequestUncheckedCreateNestedManyWithoutEventInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutEventInput
@@ -17674,7 +17766,7 @@ export namespace Prisma {
 
   export type EventSectionCreateWithoutFilesInput = {
     sectionName: string
-    description: string
+    description?: string | null
     event: EventCreateNestedOneWithoutSectionsInput
   }
 
@@ -17682,7 +17774,7 @@ export namespace Prisma {
     id?: number
     eventId: number
     sectionName: string
-    description: string
+    description?: string | null
   }
 
   export type EventSectionCreateOrConnectWithoutFilesInput = {
@@ -17703,7 +17795,7 @@ export namespace Prisma {
 
   export type EventSectionUpdateWithoutFilesInput = {
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     event?: EventUpdateOneRequiredWithoutSectionsNestedInput
   }
 
@@ -17711,11 +17803,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     eventId?: IntFieldUpdateOperationsInput | number
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateWithoutEventUsersInput = {
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -17726,18 +17818,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventRequests?: EventRequestCreateNestedManyWithoutUserInput
     incidents?: IncidentCreateNestedManyWithoutUserInput
     shiftRequests?: ShiftRequestCreateNestedManyWithoutUserInput
@@ -17745,7 +17837,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutEventUsersInput = {
     id?: number
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -17756,18 +17848,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventRequests?: EventRequestUncheckedCreateNestedManyWithoutUserInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutUserInput
     shiftRequests?: ShiftRequestUncheckedCreateNestedManyWithoutUserInput
@@ -17786,8 +17878,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     sections?: EventSectionCreateNestedManyWithoutEventInput
     userRequests?: EventRequestCreateNestedManyWithoutEventInput
     incidents?: IncidentCreateNestedManyWithoutEventInput
@@ -17803,8 +17895,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     sections?: EventSectionUncheckedCreateNestedManyWithoutEventInput
     userRequests?: EventRequestUncheckedCreateNestedManyWithoutEventInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutEventInput
@@ -17847,10 +17939,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventRequests?: EventRequestUpdateManyWithoutUserNestedInput
     incidents?: IncidentUpdateManyWithoutUserNestedInput
     shiftRequests?: ShiftRequestUpdateManyWithoutUserNestedInput
@@ -17877,10 +17969,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventRequests?: EventRequestUncheckedUpdateManyWithoutUserNestedInput
     incidents?: IncidentUncheckedUpdateManyWithoutUserNestedInput
     shiftRequests?: ShiftRequestUncheckedUpdateManyWithoutUserNestedInput
@@ -17938,8 +18030,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListCreateNestedManyWithoutEventInput
     sections?: EventSectionCreateNestedManyWithoutEventInput
     userRequests?: EventRequestCreateNestedManyWithoutEventInput
@@ -17955,8 +18047,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutEventInput
     sections?: EventSectionUncheckedCreateNestedManyWithoutEventInput
     userRequests?: EventRequestUncheckedCreateNestedManyWithoutEventInput
@@ -17969,7 +18061,7 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutIncidentsInput = {
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -17980,18 +18072,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListCreateNestedManyWithoutUserInput
     eventRequests?: EventRequestCreateNestedManyWithoutUserInput
     shiftRequests?: ShiftRequestCreateNestedManyWithoutUserInput
@@ -17999,7 +18091,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutIncidentsInput = {
     id?: number
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -18010,18 +18102,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutUserInput
     eventRequests?: EventRequestUncheckedCreateNestedManyWithoutUserInput
     shiftRequests?: ShiftRequestUncheckedCreateNestedManyWithoutUserInput
@@ -18107,10 +18199,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUpdateManyWithoutUserNestedInput
     eventRequests?: EventRequestUpdateManyWithoutUserNestedInput
     shiftRequests?: ShiftRequestUpdateManyWithoutUserNestedInput
@@ -18137,10 +18229,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUncheckedUpdateManyWithoutUserNestedInput
     eventRequests?: EventRequestUncheckedUpdateManyWithoutUserNestedInput
     shiftRequests?: ShiftRequestUncheckedUpdateManyWithoutUserNestedInput
@@ -18204,8 +18296,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListCreateNestedManyWithoutEventInput
     sections?: EventSectionCreateNestedManyWithoutEventInput
     userRequests?: EventRequestCreateNestedManyWithoutEventInput
@@ -18221,8 +18313,8 @@ export namespace Prisma {
     address: string
     startDate: Date | string
     endDate: Date | string
-    public: boolean
-    done: boolean
+    public?: boolean
+    done?: boolean
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutEventInput
     sections?: EventSectionUncheckedCreateNestedManyWithoutEventInput
     userRequests?: EventRequestUncheckedCreateNestedManyWithoutEventInput
@@ -18256,14 +18348,14 @@ export namespace Prisma {
   }
 
   export type ShiftRequestCreateWithoutShiftDayInput = {
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
     user: UserCreateNestedOneWithoutShiftRequestsInput
   }
 
   export type ShiftRequestUncheckedCreateWithoutShiftDayInput = {
     id?: number
     userId: number
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
   }
 
   export type ShiftRequestCreateOrConnectWithoutShiftDayInput = {
@@ -18385,7 +18477,7 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutShiftRequestsInput = {
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -18396,18 +18488,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListCreateNestedManyWithoutUserInput
     eventRequests?: EventRequestCreateNestedManyWithoutUserInput
     incidents?: IncidentCreateNestedManyWithoutUserInput
@@ -18415,7 +18507,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutShiftRequestsInput = {
     id?: number
-    level: $Enums.UserLevel
+    level?: $Enums.UserLevel
     name: string
     email: string
     password: string
@@ -18426,18 +18518,18 @@ export namespace Prisma {
     birthday: Date | string
     hireDate: Date | string
     phone: string
-    active: boolean
-    guardCard: boolean
-    supervisotCount: number
-    managerCount: number
-    logisticCount: number
-    driverCount: number
-    dispatchCount: number
-    assistantManagerCount: number
-    contactName1: string
-    contactPhone1: string
-    contactName2: string
-    contactPhone2: string
+    active?: boolean
+    guardCard?: boolean
+    supervisotCount?: number
+    managerCount?: number
+    logisticCount?: number
+    driverCount?: number
+    dispatchCount?: number
+    assistantManagerCount?: number
+    contactName1?: string | null
+    contactPhone1?: string | null
+    contactName2?: string | null
+    contactPhone2?: string | null
     eventUsers?: EventUserListUncheckedCreateNestedManyWithoutUserInput
     eventRequests?: EventRequestUncheckedCreateNestedManyWithoutUserInput
     incidents?: IncidentUncheckedCreateNestedManyWithoutUserInput
@@ -18507,10 +18599,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUpdateManyWithoutUserNestedInput
     eventRequests?: EventRequestUpdateManyWithoutUserNestedInput
     incidents?: IncidentUpdateManyWithoutUserNestedInput
@@ -18537,10 +18629,10 @@ export namespace Prisma {
     driverCount?: IntFieldUpdateOperationsInput | number
     dispatchCount?: IntFieldUpdateOperationsInput | number
     assistantManagerCount?: IntFieldUpdateOperationsInput | number
-    contactName1?: StringFieldUpdateOperationsInput | string
-    contactPhone1?: StringFieldUpdateOperationsInput | string
-    contactName2?: StringFieldUpdateOperationsInput | string
-    contactPhone2?: StringFieldUpdateOperationsInput | string
+    contactName1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone1?: NullableStringFieldUpdateOperationsInput | string | null
+    contactName2?: NullableStringFieldUpdateOperationsInput | string | null
+    contactPhone2?: NullableStringFieldUpdateOperationsInput | string | null
     eventUsers?: EventUserListUncheckedUpdateManyWithoutUserNestedInput
     eventRequests?: EventRequestUncheckedUpdateManyWithoutUserNestedInput
     incidents?: IncidentUncheckedUpdateManyWithoutUserNestedInput
@@ -18555,8 +18647,8 @@ export namespace Prisma {
   export type EventRequestCreateManyUserInput = {
     id?: number
     eventId: number
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
   }
 
   export type IncidentCreateManyUserInput = {
@@ -18570,7 +18662,7 @@ export namespace Prisma {
   export type ShiftRequestCreateManyUserInput = {
     id?: number
     shiftDayId: number
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
   }
 
   export type EventUserListUpdateWithoutUserInput = {
@@ -18659,14 +18751,14 @@ export namespace Prisma {
   export type EventSectionCreateManyEventInput = {
     id?: number
     sectionName: string
-    description: string
+    description?: string | null
   }
 
   export type EventRequestCreateManyEventInput = {
     id?: number
     userId: number
-    status: $Enums.GenericRequestStatus
-    isInvitation: boolean
+    status?: $Enums.GenericRequestStatus
+    isInvitation?: boolean
   }
 
   export type IncidentCreateManyEventInput = {
@@ -18703,21 +18795,21 @@ export namespace Prisma {
 
   export type EventSectionUpdateWithoutEventInput = {
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     files?: SectionFileUpdateManyWithoutSectionNestedInput
   }
 
   export type EventSectionUncheckedUpdateWithoutEventInput = {
     id?: IntFieldUpdateOperationsInput | number
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     files?: SectionFileUncheckedUpdateManyWithoutSectionNestedInput
   }
 
   export type EventSectionUncheckedUpdateManyWithoutEventInput = {
     id?: IntFieldUpdateOperationsInput | number
     sectionName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EventRequestUpdateWithoutEventInput = {
@@ -18819,7 +18911,7 @@ export namespace Prisma {
   export type ShiftRequestCreateManyShiftDayInput = {
     id?: number
     userId: number
-    status: $Enums.GenericRequestStatus
+    status?: $Enums.GenericRequestStatus
   }
 
   export type EventShiftTimeUpdateWithoutShiftDayInput = {

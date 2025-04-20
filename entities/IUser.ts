@@ -1,7 +1,7 @@
 import { USAState } from "./USAState";
 import { UserLevel } from "./UserLevel";
 
-interface IUser
+export interface IUser
 {
     id: number;
     level: UserLevel;

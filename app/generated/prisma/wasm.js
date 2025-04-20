@@ -226,6 +226,11 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
 exports.UserLevel = exports.$Enums.UserLevel = {
   MASTER: 'MASTER',
   ADMIN: 'ADMIN',

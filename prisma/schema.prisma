@@ -90,9 +90,9 @@ enum USAState {
 
 model User {
   id Int @id @default(autoincrement())
-  level UserLevel
+  level UserLevel @default(STAFF)
   name String
-  email String
+  email String @unique
   password String
 
   address String
@@ -103,20 +103,20 @@ model User {
   birthday DateTime
   hireDate DateTime
   phone String
-  active Boolean
-  guardCard Boolean
+  active Boolean @default(false)
+  guardCard Boolean @default(false)
 
-  supervisotCount Int
-  managerCount Int
-  logisticCount Int
-  driverCount Int
-  dispatchCount Int
-  assistantManagerCount Int
+  supervisotCount Int @default(0)
+  managerCount Int @default(0)
+  logisticCount Int @default(0)
+  driverCount Int @default(0)
+  dispatchCount Int @default(0)
+  assistantManagerCount Int @default(0)
 
-  contactName1 String
-  contactPhone1 String
-  contactName2 String
-  contactPhone2 String
+  contactName1 String?
+  contactPhone1 String?
+  contactName2 String?
+  contactPhone2 String?
 
   eventUsers EventUserList[]
   eventRequests EventRequest[]
@@ -134,8 +134,8 @@ model Event {
 
   startDate DateTime
   endDate DateTime
-  public Boolean
-  done Boolean
+  public Boolean @default(false)
+  done Boolean @default(false)
 
   eventUsers EventUserList[]
   sections EventSection[]
@@ -148,8 +148,8 @@ model EventRequest {
   id Int @id @default(autoincrement())
   eventId Int
   userId Int
-  status GenericRequestStatus
-  isInvitation Boolean
+  status GenericRequestStatus @default(PENDING)
+  isInvitation Boolean @default(false)
   event Event @relation(fields: [eventId], references: [id])
   user User @relation(fields: [userId], references: [id])
 }
@@ -158,7 +158,7 @@ model EventSection {
   id Int @id @default(autoincrement())
   eventId Int
   sectionName String
-  description String
+  description String?
   event Event @relation(fields: [eventId], references: [id])
 
   files SectionFile[]
@@ -217,7 +217,7 @@ model ShiftRequest {
   id Int @id @default(autoincrement())
   shiftDayId Int
   userId Int
-  status GenericRequestStatus
+  status GenericRequestStatus @default(PENDING)
   shiftDay EventShiftDay @relation(fields: [shiftDayId], references: [id])
   user User @relation(fields: [userId], references: [id])
 }
