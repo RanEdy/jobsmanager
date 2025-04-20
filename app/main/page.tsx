@@ -1,8 +1,14 @@
 export default function MainPage()
 {
     return (
-        <>
-        Pagina Principal
-        </>
+        <div className="h-full w-full justify-center items-center justify-self-center">
+        {
+
+        }
+
+        {
+            
+        }
+        </div>
     )
 }

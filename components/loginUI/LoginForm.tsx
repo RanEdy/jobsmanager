@@ -1,6 +1,22 @@
 
 "use client";
+
+import { useState } from "react";
+import { useLogin } from "./LoginProvider";
+
 const LoginForm = () => {
+    const { setUserSession } = useLogin()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleLogin = async (e: React.FormEvent) =>
+    {
+        e.preventDefault();
+        console.log("Email: " + email);
+        console.log("Password: " + password);
+        //Do query for the database with services
+    }
+
     return (
         <div className="p-6 h-full w-full">
             {/* Header Title */}
@@ -18,7 +34,8 @@ const LoginForm = () => {
                     <input
                         type="text"
                         id="email"
-                        onChange={(e) => { }}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder="EMAIL"
                         className="border-2 border-gray-300 w-full p-2 mt-6 placeholder-gray-400 rounded-md"
                     />
@@ -26,12 +43,13 @@ const LoginForm = () => {
                     <input
                         type="password"
                         id="password"
-                        onChange={(e) => { }}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder="PASSWORD"
                         className="border-2 border-gray-300 w-full p-2 mt-6 placeholder-gray-400 rounded-md"
                     />
 
-                    <button className="h-10 w-full p-2 mt-6 rounded-md bg-cyan-900 text-white font-extrabold">
+                    <button onClick={handleLogin} className="h-10 w-full p-2 mt-6 rounded-md bg-cyan-900 text-white font-extrabold">
                         LOGIN
                     </button>
                 </form>
